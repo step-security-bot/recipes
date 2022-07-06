@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Temp downloaded files
+CookCLI_*.*.*_linux_amd64.zip
+cook

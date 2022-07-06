@@ -1,0 +1,99 @@
+site_name: Recipes
+site_url: https://recipes.demosjarco.dev
+site_author: DemosJarco
+repo_name: demosjarco/recipes
+repo_url: https://github.com/demosjarco/recipes
+edit_uri: edit/main/recipes/
+docs_dir: recipes
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+    logo: fontawesome/solid/utensils
+  # Enables highlighting of source code in code blocks using the highlight.js JavaScript library
+  highlightjs: true
+  # Lists the homepage in the sidebar menu. As MkDocs requires that the homepage be listed in the nav configuration option, this setting allows the homepage to be included or excluded from the sidebar. Note that the site name/logo always links to the homepage.
+  include_homepage_in_sidebar: false
+  # One of bottom, top, both , or none. Displays the “Next” and “Previous” buttons accordingly
+  prev_next_buttons_location: none
+  # The maximum depth of the navigation tree in the sidebar. Default: 4
+  navigation_depth: 4
+  # Only include the page section headers in the sidebar for the current page
+  collapse_navigation: true
+  # Only include page titles in the sidebar, excluding all section headers for all pages
+  titles_only: false
+  # If True, causes the sidebar to scroll with the main page content as you scroll the page
+  sticky_navigation: true
+  # The locale (language/location) used to build the theme. If your locale is not yet supported, it will fallback to the default
+  locale: en
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: green
+      accent: red
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: red
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: red
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Red Hat Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+  custom_dir: overrides
+extra_css:
+  - stylesheets/extra.css
+markdown_extensions:
+  - smarty
+  - toc:
+      permalink: "#"
+      separator: "_"
+  - sane_lists
+  - footnotes
+  - def_list
+  - attr_list
+  - admonition
+  - pymdownx.tasklist
+  - pymdownx.caret
+  - pymdownx.magiclink
+  - pymdownx.betterem
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins:
+  - search
+  - tags
+  - minify:
+      minify_html: true
+      htmlmin_opts:
+        remove_comments: true
+        reduce_boolean_attributes: true
+      minify_js: true
+      minify_css: true
+      # css_files:
+        # - recipes/stylesheets/extra.css
+  - git-revision-date:
+      # Only show if running on CF
+      enabled_if_env: CF_PAGES

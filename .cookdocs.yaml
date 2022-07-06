@@ -1,0 +1,7 @@
+# dry-run: false
+# ignore-file: .cookdocsignore
+# jsonify: false
+# log-level: info
+template-files:
+  - recipe.md.gotmpl
+recipe-search-root: ./recipes

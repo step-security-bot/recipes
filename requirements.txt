@@ -1,0 +1,8 @@
+ghapi
+# regex
+mkdocs
+mkdocs-material
+mkdocs-minify-plugin
+toc
+pymdown-extensions
+mkdocs-git-revision-date-plugin
