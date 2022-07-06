@@ -6,7 +6,7 @@ class Docs:
 	def __init__(self) -> None:
 		CookLang()
 		CookDocs()
-		# Cloud running specific commands only
+		# Cloudflare specific commands only
 		if (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
 			self.runMkDocs()
 	
