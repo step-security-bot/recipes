@@ -40,3 +40,5 @@ jobs:
       run: pip install -r requirements.txt
     - name: Setup
       run: python3 setup.py
+    - name: Deploy
+      run: mkdocs gh-deploy --help
