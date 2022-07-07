@@ -10,7 +10,7 @@ class Docs:
 		if (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
 			self.runMkDocs()
 		# GitHub specific commands only
-		print(os.getenv('GITHUB_ACTIONS'))
+		print(f"GitHub Actions is: {os.getenv('GITHUB_ACTIONS')}")
 	
 	def runMkDocs(self) -> None:
 		runDocsAttempt = os.system('mkdocs build')
