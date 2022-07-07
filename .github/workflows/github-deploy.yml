@@ -23,6 +23,7 @@ jobs:
       with:
         go-version: '1.18'
         check-latest: true
+        # Must be disabled when no `go.sum`
         # cache: true
     
     # Temp
