@@ -27,13 +27,6 @@ theme:
   # The locale (language/location) used to build the theme. If your locale is not yet supported, it will fallback to the default
   locale: en
   palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      primary: green
-      accent: red
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -49,7 +42,7 @@ theme:
       accent: red
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: Switch to light mode
   font:
     text: Roboto
     code: Red Hat Mono
