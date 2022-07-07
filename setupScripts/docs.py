@@ -12,12 +12,11 @@ class Docs:
 	def ciTweaks(self) -> None:
 		with open('mkdocs.yml', 'r') as mkdocsConfigFile:
 			self.mkdocsConfig = mkdocsConfigFile.read()
-		print('dump-test-1', type(self.mkdocsConfig), bool(os.getenv('GITHUB_ACTIONS')))
 
 		if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
 			self.mkdocsConfig.replace('https://recipes.demosjarco.dev', 'https://demosjarco.github.io/recipes')
 			self.mkdocsConfig.replace('CF_PAGES', 'GITHUB_ACTIONS')
-		print('dump-test-2', self.mkdocsConfig)
+		print('dump-test', self.mkdocsConfig)
 
 		with open('mkdocs.yml', 'w') as mkdocsConfigFile:
 			mkdocsConfigFile.write(self.mkdocsConfig)
