@@ -31,6 +31,8 @@ jobs:
         route: GET /repos/{owner}/{repo}/releases/latest
         owner: cooklang
         repo: CookCLI
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: "echo latest release: ${{ fromJson(steps.get_latest_release.outputs.data).assets }}"
     - uses: actions/setup-go@v3
       with:
