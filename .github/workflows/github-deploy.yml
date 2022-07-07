@@ -24,6 +24,8 @@ jobs:
       with:
           egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
     - uses: actions/setup-python@v4
       with:
         python-version: '3.x'
