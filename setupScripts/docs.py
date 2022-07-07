@@ -4,8 +4,6 @@ from .cookdocs import CookDocs
 
 class Docs:
 	def __init__(self) -> None:
-		# GitHub specific commands only
-		print(f"GitHub Actions is: {int(os.getenv('GITHUB_ACTIONS'))}")
 		CookLang()
 		CookDocs()
 		# Cloudflare specific commands only
