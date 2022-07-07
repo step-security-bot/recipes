@@ -19,19 +19,27 @@ jobs:
       with:
           egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
     - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+        cache: 'pip'
+    - run: pip install -r requirements.txt
+    - name: Get cooklang download url
+      uses: octokit/request-action@v2
+      id: get_latest_cooklang_release
+      with:
+        route: GET /repos/{owner}/{repo}/releases/latest
+        owner: cooklang
+        repo: CookCLI
+    - run: "echo latest release: ${{ fromJson(steps.get_latest_release.outputs.data).assets }}"
     - uses: actions/setup-go@v3
       with:
         go-version: '1.18'
         check-latest: true
         # Must be disabled when no `go.sum`
         # cache: true
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-        cache: 'pip'
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-    - name: Setup
-      run: python3 setup.py
+    - run: go install github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest
+    # - name: Setup
+    #   run: python3 setup.py
     - name: Deploy
       run: mkdocs gh-deploy --help
