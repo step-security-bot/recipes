@@ -5,12 +5,12 @@ class CookDocs:
 		self.download()
 		self.run()
 
-	def download(self):
+	def download(self) -> None:
 		goInstallAttempt = os.system("go install github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest")
 		if goInstallAttempt != 0:
 			raise Exception(f"go exited with code: {goInstallAttempt}")
 
-	def run(self):
+	def run(self) -> None:
 		if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
 			# Running in GitHub Actions
 			cookDocsAttempt = os.system("cook-docs")

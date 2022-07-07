@@ -7,7 +7,7 @@ class CookLang:
 	def __init__(self) -> None:
 		self.download()
 
-	def download(self):
+	def download(self) -> None:
 		ghAssets = GhApi().repos.get_latest_release('cooklang', 'CookCLI').assets
 		for ghAsset in ghAssets:
 			if re.search('CookCLI_\d+\.\d+\.\d+_linux_amd64\.zip', ghAsset.name):
