@@ -26,7 +26,6 @@ jobs:
         # cache: true
     
     # Temp
-    - run: go mod init github.com/demosjarco/recipes
     # - run: go install github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest
     - run: go install
     - run: go mod tidy
