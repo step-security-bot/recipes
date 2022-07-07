@@ -14,6 +14,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
+      contents: write
       pages: write
     steps:
     - uses: step-security/harden-runner@v1
