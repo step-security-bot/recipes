@@ -25,7 +25,7 @@ jobs:
         check-latest: true
         # cache: true
     - run: |
-        go mod init —
+        go mod init github.com/demosjarco/recipes
         go install github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest
         cat go.mod
     - uses: actions/setup-python@v4
