@@ -28,8 +28,10 @@ jobs:
     # Temp
     - run: go mod init github.com/demosjarco/recipes
     - run: go get github.com/nicholaswilde/cook-docs/cmd/cook-docs
+    # - run: go install github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest
     # - run: go install
     - run: go mod tidy
+    - run: go build
     - run: ls -lA
     - run: cat go.mod
     - run: cat go.sum
