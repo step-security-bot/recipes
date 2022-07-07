@@ -1,5 +1,4 @@
 ghapi
-ruamel.yaml
 mkdocs
 mkdocs-material
 mkdocs-minify-plugin

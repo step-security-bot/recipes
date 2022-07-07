@@ -1,7 +1,6 @@
 import os
 from .cooklang import CookLang
 from .cookdocs import CookDocs
-import ruamel.yaml
 
 class Docs:
 	def __init__(self) -> None:
@@ -11,24 +10,15 @@ class Docs:
 		self.generate()
 	
 	def ciTweaks(self) -> None:
-		yaml = ruamel.yaml.YAML()
-		with open('mkdocs.yml') as mkdocsConfigFile:
-			data = yaml.load(mkdocsConfigFile)
+		with open('mkdocs.yml', 'r') as mkdocsConfigFile:
+			self.mkdocsConfig = mkdocsConfigFile.read()
 
-		for elem in data:
-			if elem['name'] == 'site_url':
-				if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
-					elem['value'] = 'https://demosjarco.github.io/recipes'
-				elif (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
-					elem['value'] = 'https://recipes.demosjarco.dev'
-			elif elem['name'] == 'enabled_if_env':
-				if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
-					elem['value'] = 'GITHUB_ACTIONS'
-				elif (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
-					elem['value'] = 'CF_PAGES'
+		if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
+			self.mkdocsConfig.replace('https://recipes.demosjarco.dev', 'https://demosjarco.github.io/recipes')
+			self.mkdocsConfig.replace('CF_PAGES', 'GITHUB_ACTIONS')
 
-		with open('mkdocs.yml', 'wb') as mkdocsConfigFile:
-			yaml.dump(data, mkdocsConfigFile)
+		with open('mkdocs.yml', 'w') as mkdocsConfigFile:
+			mkdocsConfigFile.write(self.mkdocsConfig)
 	
 	def generate(self) -> None:
 		if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
