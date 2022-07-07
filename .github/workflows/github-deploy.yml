@@ -24,22 +24,13 @@ jobs:
         python-version: '3.x'
         cache: 'pip'
     - run: pip install -r requirements.txt
-    - name: Download Cooklang
-      uses: dsaltares/fetch-gh-release-asset@1.0.0
-      with:
-        repo: 'cooklang/CookCLI'
-        regex: true
-        file: 'CookCLI_\d+\.\d+\.\d+_linux_amd64\.zip'
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - run: ls -lA
     - uses: actions/setup-go@v3
       with:
         go-version: '1.18'
         check-latest: true
         # Must be disabled when no `go.sum`
         # cache: true
-    - run: go install github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest
-    # - name: Setup
-    #   run: python3 setup.py
+    - name: Setup
+      run: python3 setup.py
     - name: Deploy
       run: mkdocs gh-deploy --help
