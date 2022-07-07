@@ -25,17 +25,6 @@ jobs:
         check-latest: true
         # Must be disabled when no `go.sum`
         # cache: true
-    
-    # Temp
-    - run: go mod init github.com/demosjarco/recipes
-    # - run: go get github.com/nicholaswilde/cook-docs/cmd/cook-docs
-    - run: go install github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest
-    # - run: go install
-    - run: go mod tidy
-    - run: ls -lA
-    - run: cat go.mod
-    - run: cat go.sum
-
     - uses: actions/setup-python@v4
       with:
         python-version: '3.x'
