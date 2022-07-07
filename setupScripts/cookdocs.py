@@ -4,7 +4,7 @@ class CookDocs:
 	def __init__(self) -> None:
 		self.download()
 
-	def download(sefl):
+	def download(self):
 		goInstallAttempt = os.system("go install github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest")
 		if goInstallAttempt != 0:
 			raise Exception(f"go exited with code: {goInstallAttempt}")
