@@ -30,4 +30,3 @@ jobs:
         # Must be disabled when no `go.sum`
         # cache: true
     - run: python3 setup.py
-    - run: mkdocs gh-deploy --help
