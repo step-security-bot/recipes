@@ -16,6 +16,7 @@ class Docs:
 		if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
 			self.mkdocsConfig.replace('https://recipes.demosjarco.dev', 'https://demosjarco.github.io/recipes')
 			self.mkdocsConfig.replace('CF_PAGES', 'GITHUB_ACTIONS')
+		print('dump-test', self.mkdocsConfig)
 
 		with open('mkdocs.yml', 'w') as mkdocsConfigFile:
 			mkdocsConfigFile.write(self.mkdocsConfig)
