@@ -4,9 +4,13 @@
 
 {{ template "cook.tableSection" . }}
 
-{{ template "cook.ingredientsSection" . }}
+???+ summary "Ingredients"
 
-{{ template "cook.cookwareSection" . }}
+	{{ template "cook.ingredients" . }}
+
+???+ summary "Cookware"
+
+	{{ template "cook.cookware" . }}
 
 {{ template "cook.stepsWithAdmonishedCommentsSection" . }}
 
