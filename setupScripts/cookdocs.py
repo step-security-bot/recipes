@@ -23,3 +23,4 @@ class CookDocs:
 				raise Exception(f"cook-docs exited with code: {cookDocsAttempt}")
 			# os.system("ls -la")
 			# os.system("tree recipes")
+			os.system("cat ./recipes/buffalo-chicken-sandwich.md")
