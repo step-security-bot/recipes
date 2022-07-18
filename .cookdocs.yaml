@@ -1,5 +1,3 @@
 # log-level: debug
 log-level: warning
-template-files:
-  - recipe.md.gotmpl
 recipe-search-root: ./recipes
