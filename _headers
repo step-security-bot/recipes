@@ -1,3 +1,4 @@
+# https://owasp.org/www-project-secure-headers/#div-headers
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
