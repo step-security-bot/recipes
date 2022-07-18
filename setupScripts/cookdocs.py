@@ -21,5 +21,5 @@ class CookDocs:
 			cookDocsAttempt = os.system("$GOPATH/bin/cook-docs")
 			if cookDocsAttempt != 0:
 				raise Exception(f"cook-docs exited with code: {cookDocsAttempt}")
-			os.system("ls -la")
-			os.system("tree recipes")
+			# os.system("ls -la")
+			# os.system("tree recipes")
