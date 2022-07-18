@@ -22,4 +22,4 @@ class CookDocs:
 			if cookDocsAttempt != 0:
 				raise Exception(f"cook-docs exited with code: {cookDocsAttempt}")
 			os.system("ls -la")
-			os.system("tree assets")
+			os.system("tree recipes")
