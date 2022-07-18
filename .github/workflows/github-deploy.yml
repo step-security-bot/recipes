@@ -10,6 +10,7 @@ on:
     paths-ignore:
       - ".github/**"
       - ".vscode/**"
+      - "_headers"
   workflow_dispatch:
 concurrency: ${{ github.ref }}
 
