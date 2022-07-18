@@ -1,6 +1,7 @@
 import os
 from .cooklang import CookLang
 from .cookdocs import CookDocs
+import shutil
 
 class Docs:
 	def __init__(self) -> None:
@@ -8,6 +9,7 @@ class Docs:
 		CookDocs()
 		self.ciTweaks()
 		self.generate()
+		self.siteExtraConfig()
 	
 	def ciTweaks(self) -> None:
 		with open('mkdocs.yml', 'r') as mkdocsConfigFile:
@@ -29,3 +31,7 @@ class Docs:
 		runDocsAttempt = os.system(f"mkdocs {subcommand}")
 		if runDocsAttempt != 0:
 			raise Exception(f"mkdocs exited with code: {runDocsAttempt}")
+
+	def siteExtraConfig(self) -> None:
+		if (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
+			shutil.move('./_headers', './site/_headers')
