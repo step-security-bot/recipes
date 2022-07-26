@@ -6,22 +6,20 @@ import shutil
 
 class Docs:
 	def __init__(self) -> None:
-		self.systemType = self.setupEnv()
-		print(self.systemType, os.getenv('CI_SYSTEM_OVERRIDE'), os.getenv('CF_PAGES'), os.getenv('GITHUB_ACTIONS'))
+		if (os.getenv('CI_SYSTEM_OVERRIDE') != None and int(os.getenv('CI_SYSTEM_OVERRIDE')) >= 0):
+			self.systemType = CiSystem(int(os.getenv('CI_SYSTEM_OVERRIDE')))
+		else:
+			if (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
+				self.systemType = CiSystem.CLOUDFLARE
+			elif (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
+				self.systemType = CiSystem.GITHUB
+		print('system_env', self.systemType, os.getenv('CI_SYSTEM_OVERRIDE'), os.getenv('CF_PAGES'), os.getenv('GITHUB_ACTIONS'))
+		
 		CookLang()
 		CookDocs()
 		self.ciTweaks()
 		self.generate()
 		self.siteExtraConfig()
-	
-	def setupEnv(self) -> CiSystem:
-		if (os.getenv('CI_SYSTEM_OVERRIDE') != None and int(os.getenv('CI_SYSTEM_OVERRIDE')) >= 0):
-			return CiSystem(int(os.getenv('CI_SYSTEM_OVERRIDE')))
-		else:
-			if (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
-				return CiSystem.CLOUDFLARE
-			elif (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
-				return CiSystem.GITHUB
 
 	def ciTweaks(self) -> None:
 		with open('mkdocs.yml', 'r') as mkdocsConfigFile:
