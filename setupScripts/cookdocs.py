@@ -12,12 +12,10 @@ class CookDocs:
 
 	def run(self) -> None:
 		if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
-			# Running in GitHub Actions
-			cookDocsAttempt = os.system("cook-docs")
-			if cookDocsAttempt != 0:
-				raise Exception(f"cook-docs exited with code: {cookDocsAttempt}")
+			gopath = ''
 		elif (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
-			# Running in Cloudflare Pages
-			cookDocsAttempt = os.system("$GOPATH/bin/cook-docs")
-			if cookDocsAttempt != 0:
-				raise Exception(f"cook-docs exited with code: {cookDocsAttempt}")
+			gopath = '$GOPATH/bin/'
+
+		print('running: ', f'{gopath}cook-docs', flush=True)
+		if cookDocsAttempt != 0:
+			raise Exception(f"cook-docs exited with code: {cookDocsAttempt}")
