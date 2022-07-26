@@ -7,7 +7,7 @@ import shutil
 class Docs:
 	def __init__(self) -> None:
 		self.systemType = self.setupEnv()
-		print(self.systemType, os.getenv('CI_SYSTEM_OVERRIDE'), os.getenv('CF_PAGES'), os.getenv('GITHUB_ACTIONS'))
+		print(self.systemType, os.getenv('CI_SYSTEM_OVERRIDE'), os.getenv('CF_PAGES'), os.getenv('GITHUB_ACTIONS'), flush=True)
 		CookLang()
 		CookDocs()
 		self.ciTweaks()
