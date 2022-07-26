@@ -7,6 +7,7 @@ import shutil
 class Docs:
 	def __init__(self) -> None:
 		self.systemType = self.setupEnv()
+		print(self.systemType, os.getenv('CI_SYSTEM_OVERRIDE'), os.getenv('CF_PAGES'), os.getenv('GITHUB_ACTIONS'))
 		CookLang()
 		CookDocs()
 		self.ciTweaks()
@@ -44,5 +45,5 @@ class Docs:
 			raise Exception(f"mkdocs exited with code: {runDocsAttempt}")
 
 	def siteExtraConfig(self) -> None:
-		if (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
+		if self.systemType == CiSystem.CLOUDFLARE:
 			shutil.move('./_headers', './site/_headers')
