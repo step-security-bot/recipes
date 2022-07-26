@@ -1,0 +1,38 @@
+name: Generate Docs debug
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CI_SYSTEM_OVERRIDE: 0
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: step-security/harden-runner@v1
+        with:
+            egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.18'
+          check-latest: true
+          # Must be disabled when no `go.sum`
+          # cache: true
+      - run: python3 setup.py
+      - uses: actions/upload-artifact@v3
+        with:
+          path: path/to/artifact/ # or path/to/artifact
+          path: ${{ github.workspace }}
+          if-no-files-found: error
