@@ -9,6 +9,9 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        py: [3.7.x, 3.8.x, 3.9.x, 3.10.x]
     steps:
       - uses: step-security/harden-runner@v1
         with:
@@ -18,7 +21,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: ${{ matrix.py }}
           cache: 'pip'
       - run: pip install -r requirements.txt
       - uses: actions/setup-go@v3
@@ -32,5 +35,6 @@ jobs:
           CI_SYSTEM_OVERRIDE: 0
       - uses: actions/upload-artifact@v3
         with:
+          name: py-${{ matrix.py }}-go-
           path: ${{ github.workspace }}
           if-no-files-found: error
