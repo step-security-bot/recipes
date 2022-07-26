@@ -36,9 +36,9 @@ class Docs:
 	
 	def generate(self) -> None:
 		if self.systemType == CiSystem.CLOUDFLARE:
-			subcommand = 'gh-deploy'
-		elif self.systemType == CiSystem.GITHUB:
 			subcommand = 'build'
+		elif self.systemType == CiSystem.GITHUB:
+			subcommand = 'gh-deploy'
 		
 		print('running: ', f'mkdocs {subcommand}', flush=True)
 		runDocsAttempt = os.system(f"mkdocs {subcommand}")
