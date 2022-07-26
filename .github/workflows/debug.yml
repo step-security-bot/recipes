@@ -6,9 +6,6 @@ on:
 permissions:
   contents: read
 
-env:
-  CI_SYSTEM_OVERRIDE: 0
-
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -31,6 +28,8 @@ jobs:
           # Must be disabled when no `go.sum`
           # cache: true
       - run: python3 setup.py
+        env:
+          CI_SYSTEM_OVERRIDE: 0
       - uses: actions/upload-artifact@v3
         with:
           path: ${{ github.workspace }}
