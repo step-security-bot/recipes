@@ -33,6 +33,5 @@ jobs:
       - run: python3 setup.py
       - uses: actions/upload-artifact@v3
         with:
-          path: path/to/artifact/ # or path/to/artifact
           path: ${{ github.workspace }}
           if-no-files-found: error
