@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         py: [3.7.x, 3.8.x, 3.9.x, 3.10.x]
+        go: [1.18]
     steps:
       - uses: step-security/harden-runner@v1
         with:
@@ -26,7 +27,7 @@ jobs:
       - run: pip install -r requirements.txt
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.18'
+          go-version: ${{ matrix.go }}
           check-latest: true
           # Must be disabled when no `go.sum`
           # cache: true
@@ -35,6 +36,6 @@ jobs:
           CI_SYSTEM_OVERRIDE: 0
       - uses: actions/upload-artifact@v3
         with:
-          name: py-${{ matrix.py }}-go-
+          name: py-${{ matrix.py }}-go-${{ matrix.go }}
           path: ${{ github.workspace }}
           if-no-files-found: error
