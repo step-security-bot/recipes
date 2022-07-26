@@ -34,6 +34,7 @@ jobs:
       - run: python3 setup.py
         env:
           CI_SYSTEM_OVERRIDE: 0
+      - run: find . -type f -exec sha512sum {} \; > hashes.sha512
       - uses: actions/upload-artifact@v3
         with:
           name: py-${{ matrix.py }}-go-${{ matrix.go }}
