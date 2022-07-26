@@ -17,6 +17,6 @@ class CookDocs:
 			gopath = '$GOPATH/bin/'
 
 		print('running: ', f'{gopath}cook-docs', flush=True)
-		cookDocsAttempt = os.system("{gopath}cook-docs")
+		cookDocsAttempt = os.system(f"{gopath}cook-docs")
 		if cookDocsAttempt != 0:
 			raise Exception(f"cook-docs exited with code: {cookDocsAttempt}")
