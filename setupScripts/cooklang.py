@@ -7,6 +7,7 @@ class CookLang:
 	def __init__(self) -> None:
 		self.download(self.getDownloadLink())
 		self.unzip()
+		self.delzip()
 
 	def getDownloadLink(self) -> str:
 		ghAssets = GhApi().repos.get_latest_release('cooklang', 'CookCLI').assets
@@ -24,3 +25,8 @@ class CookLang:
 		unzipAttempt = os.system(f"unzip -o {self.zipFileName}")
 		if unzipAttempt != 0:
 			raise Exception(f"unzip exited with code: {unzipAttempt}")
+	
+	def delzip(self) -> None:
+		delzipAttempt = os.system(f"rm -v {self.zipFileName}")
+		if delzipAttempt != 0:
+			raise Exception(f"rm exited with code: {delzipAttempt}")
