@@ -31,6 +31,10 @@ jobs:
       with:
         python-version: '3.x'
         cache: 'pip'
+    - uses: actions/cache@v2
+      with:
+        key: ${{ github.ref }}
+        path: .cache
     - run: pip install -r requirements.txt
     - uses: actions/setup-go@v3
       with:
