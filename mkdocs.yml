@@ -87,5 +87,5 @@ plugins:
   - git-revision-date:
       # Only show if running on CF
       enabled_if_env: CF_PAGES
-  - privacy:
-      enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
+  # - privacy:
+  #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
