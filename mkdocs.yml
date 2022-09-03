@@ -93,8 +93,8 @@ plugins:
         reduce_boolean_attributes: true
       minify_js: true
       minify_css: true
-      # css_files:
-        # - recipes/stylesheets/extra.css
+      css_files:
+        - recipes/stylesheets/extra.css
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
