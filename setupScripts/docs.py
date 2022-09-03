@@ -27,9 +27,6 @@ class Docs:
 		with open('mkdocs.yml', 'r') as mkdocsConfigFile:
 			self.mkdocsConfig = mkdocsConfigFile.read()
 
-		if self.systemType == CiSystem.GITHUB:
-			self.mkdocsConfig = self.mkdocsConfig.replace('https://recipes.demosjarco.dev', 'https://demosjarco.github.io/recipes')
-
 		with open('mkdocs.yml', 'w') as mkdocsConfigFile:
 			mkdocsConfigFile.write(self.mkdocsConfig)
 	

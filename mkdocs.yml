@@ -1,5 +1,5 @@
 site_name: Recipes
-site_url: https://recipes.demosjarco.dev
+site_url: !ENV [SITE_URL, CF_PAGES_URL, 'https://recipes.demosjarco.dev']
 site_author: DemosJarco
 repo_name: demosjarco/recipes
 repo_url: https://github.com/demosjarco/recipes

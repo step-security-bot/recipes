@@ -47,3 +47,4 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENABLED_GIT_REVISION_DATE: true
+          SITE_URL: https://demosjarco.github.io/recipes/

@@ -36,6 +36,7 @@ jobs:
         env:
           CI_SYSTEM_OVERRIDE: 0
           ENABLED_GIT_REVISION_DATE: true
+          SITE_URL: https://demosjarco.github.io/recipes/
       - run: find . -type f -exec sha512sum {} \; > py-${{ matrix.py }}-go-${{ matrix.go }}-hashes.sha512
       - uses: actions/upload-artifact@v3
         with:
