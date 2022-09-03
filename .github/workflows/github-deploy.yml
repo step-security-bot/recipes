@@ -46,3 +46,4 @@ jobs:
     - run: python3 setup.py
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENABLED_GIT_REVISION_DATE: true

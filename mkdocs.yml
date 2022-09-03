@@ -98,6 +98,6 @@ plugins:
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
-      enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
+      enabled: !ENV [ENABLED_GIT_REVISION_DATE, false]
   # - privacy:
   #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
