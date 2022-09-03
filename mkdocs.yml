@@ -54,6 +54,14 @@ theme:
     - search.highlight
     - search.share
   custom_dir: overrides
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://demosjarco.github.io/recipes/
+      name: GitHub Pages
+    - icon: fontawesome/brands/cloudflare
+      link: https://vic-recipes.pages.dev
+      name: Cloudflare Pages
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
