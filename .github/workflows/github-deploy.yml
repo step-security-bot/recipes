@@ -39,7 +39,7 @@ jobs:
     - run: pip install -r requirements.txt
     - uses: actions/setup-go@v3
       with:
-        go-version: '1.18'
+        go-version: '1.x'
         check-latest: true
         # Must be disabled when no `go.sum`
         # cache: true
