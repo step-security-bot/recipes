@@ -11,9 +11,9 @@ class Docs:
 		print(self.systemType, os.getenv('CI_SYSTEM_OVERRIDE'), os.getenv('CF_PAGES'), os.getenv('GITHUB_ACTIONS'), flush=True)
 		CookLang()
 		CookDocs()
-		CookDocsImages()
 		self.ciTweaks()
 		self.generate()
+		CookDocsImages()
 		self.siteExtraConfig()
 	
 	def setupEnv(self) -> CiSystem:
