@@ -1,4 +1,5 @@
 import os
+import re
 
 class CookDocsImages:
 	def __init__(self) -> None:
@@ -8,5 +9,6 @@ class CookDocsImages:
 		print('WORKTODO')
 		for root, dirs, files in os.walk(walkDir):
 			for filename in files:
-				# print(os.path.join(root, filename))
-				print(filename)
+				if re.search(r'^((?!icon).)+\.(jpg|png)$', filename, flags=re.IGNORECASE):
+					print(os.path.join(root, filename))
+					# print(filename)
