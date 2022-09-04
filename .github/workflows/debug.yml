@@ -39,14 +39,14 @@ jobs:
           CI_SYSTEM_OVERRIDE: 0
           ENABLED_GIT_REVISION_DATE: true
           SITE_URL: https://demosjarco.github.io/recipes/
-      - run: find . -type f -exec sha512sum {} \; > 'py-${{ steps.sp.outputs.python-version }}-go-${{ matrix.go }}-hashes.sha512'
+      - run: find . -type f -exec sha512sum {} \; > 'py-${{ steps.sp.outputs.python-version }}-go-${{ steps.sg.outputs.go-version }}-hashes.sha512'
       - uses: actions/upload-artifact@v3
         with:
-          name: py-${{ steps.sp.outputs.python-version }}-go-${{ matrix.go }}-hashes.sha512
-          path: '${{ github.workspace }}/py-${{ steps.sp.outputs.python-version }}-go-${{ matrix.go }}-hashes.sha512'
+          name: py-${{ steps.sp.outputs.python-version }}-go-${{ steps.sg.outputs.go-version }}-hashes.sha512
+          path: '${{ github.workspace }}/py-${{ steps.sp.outputs.python-version }}-go-${{ steps.sg.outputs.go-version }}-hashes.sha512'
           if-no-files-found: error
       - uses: actions/upload-artifact@v3
         with:
-          name: py-${{ steps.sp.outputs.python-version }}-go-${{ matrix.go }}
+          name: py-${{ steps.sp.outputs.python-version }}-go-${{ steps.sg.outputs.go-version }}
           path: ${{ github.workspace }}
           if-no-files-found: error
