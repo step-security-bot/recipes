@@ -10,6 +10,7 @@ class CookDocsImages:
 		print('WORKTODO')
 		for root, dirs, files in os.walk(walkDir):
 			for filename in files:
+				# cook-docs only supports jpg and png https://github.com/nicholaswilde/cook-docs/blob/70a9703a6647cfa857dd8a94c0623149fcd03368/pkg/cook/recipe_info.go#L33
 				if re.search(r'^((?!icon).)+\.(jpg|png)$', filename, flags=re.IGNORECASE):
 					self.moveAsset(root, filename)
 	
