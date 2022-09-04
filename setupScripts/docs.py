@@ -2,6 +2,7 @@ import os
 from .cisystem import CiSystem
 from .cooklang import CookLang
 from .cookdocs import CookDocs
+from .cookdocsImages import CookDocsImages
 import shutil
 
 class Docs:
@@ -10,6 +11,7 @@ class Docs:
 		print(self.systemType, os.getenv('CI_SYSTEM_OVERRIDE'), os.getenv('CF_PAGES'), os.getenv('GITHUB_ACTIONS'), flush=True)
 		CookLang()
 		CookDocs()
+		CookDocsImages()
 		self.ciTweaks()
 		self.generate()
 		self.siteExtraConfig()
