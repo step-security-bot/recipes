@@ -6,8 +6,8 @@ repo_url: https://github.com/demosjarco/recipes
 docs_dir: recipes
 theme:
   name: material
-  favicon: icon.png
-  logo: icon.png
+  favicon: ../icon.png
+  logo: ../icon.png
   icon:
     repo: fontawesome/brands/github
   # Enables highlighting of source code in code blocks using the highlight.js JavaScript library
