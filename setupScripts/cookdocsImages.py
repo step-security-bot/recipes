@@ -1,4 +1,3 @@
-from ast import walk
 import os
 
 class CookDocsImages:
