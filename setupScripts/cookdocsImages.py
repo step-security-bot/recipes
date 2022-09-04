@@ -24,7 +24,7 @@ class CookDocsImages:
 		temp = os.path.join(root, 'assets')
 		print(temp)
 		if os.path.isdir(temp):
-			print('assets exists')
+			print("assets exists")
 		else:
-			print('assets doesn't exist')
+			print("assets doesn't exist")
 		# shutil.move(os.path.join(root, filename), os.path.join(root, 'assets/images', self.standardizeName(filename)))
