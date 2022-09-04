@@ -23,10 +23,17 @@ class CookDocsImages:
 		# Check if assets folder exists
 		imageRoot = os.path.join(root, 'assets/images')
 		if not os.path.isdir(imageRoot):
-		# shutil.move(os.path.join(root, filename), os.path.join(root, 'assets/images', self.standardizeName(filename)))			# drwxr-xr-x 2 buildbot nogroup    4096 Sep  4 22:48 .
+			# CF
+			# drwxr-xr-x 2 buildbot nogroup    4096 Sep  4 22:48 .
 			# GH
 			# drwxr-xr-x 2 runner docker    4096 Sep  4 22:48 .
 			# 
 			# Keep base folder perms of 755
 			os.makedirs(imageRoot, 0o755)
 			print("Created", imageRoot)
+		# Check if image exists
+		originalImagePath = os.path.join(root, filename)
+		newImagePath = os.path.join(imageRoot, self.standardizeName(filename))
+		if not os.path.isfile(newImagePath):
+			shutil.move(originalImagePath, newImagePath)
+			print("Moved", originalImagePath, "to", newImagePath)
