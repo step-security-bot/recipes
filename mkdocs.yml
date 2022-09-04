@@ -17,7 +17,7 @@ theme:
   # One of bottom, top, both , or none. Displays the “Next” and “Previous” buttons accordingly
   prev_next_buttons_location: none
   # The maximum depth of the navigation tree in the sidebar. Default: 4
-  navigation_depth: 4
+  navigation_depth: 5
   # Only include the page section headers in the sidebar for the current page
   collapse_navigation: true
   # Only include page titles in the sidebar, excluding all section headers for all pages
