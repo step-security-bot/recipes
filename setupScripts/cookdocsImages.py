@@ -27,4 +27,5 @@ class CookDocsImages:
 			print("assets exists")
 		else:
 			print("assets doesn't exist")
+			print("root is", os.stat(root).st_mode)
 		# shutil.move(os.path.join(root, filename), os.path.join(root, 'assets/images', self.standardizeName(filename)))
