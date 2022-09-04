@@ -25,4 +25,9 @@ class CookDocsImages:
 		if not os.path.isdir(imageRoot):
 			print("Creating", imageRoot)
 			os.system(f"ls -la {root}")
-		# shutil.move(os.path.join(root, filename), os.path.join(root, 'assets/images', self.standardizeName(filename)))
+		# shutil.move(os.path.join(root, filename), os.path.join(root, 'assets/images', self.standardizeName(filename)))			# drwxr-xr-x 2 buildbot nogroup    4096 Sep  4 22:48 .
+			# GH
+			# drwxr-xr-x 2 runner docker    4096 Sep  4 22:48 .
+			# 
+			# Keep base folder perms of 755
+			os.makedirs(imageRoot, 0o755)
