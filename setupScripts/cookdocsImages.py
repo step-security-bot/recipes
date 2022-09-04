@@ -9,4 +9,5 @@ class CookDocsImages:
 		print('WORKTODO')
 		for root, dirs, files in os.walk(walkDir):
 			for filename in files:
-				print(os.path.join(root, filename))
+				# print(os.path.join(root, filename))
+				print(filename)
