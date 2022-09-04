@@ -28,11 +28,13 @@ jobs:
           cache: 'pip'
       - run: pip install -r requirements.txt
       - uses: actions/setup-go@v3
+        id: sg
         with:
           go-version: ${{ matrix.go }}
           check-latest: true
           # Must be disabled when no `go.sum`
           # cache: true
+      - run: echo '${{ steps.sg.outputs }}'
       - run: python3 setup.py
         env:
           CI_SYSTEM_OVERRIDE: 0
