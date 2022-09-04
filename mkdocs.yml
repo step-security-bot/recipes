@@ -99,5 +99,6 @@ plugins:
       type: timeago
       enable_creation_date: true
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, false]
+  - glightbox
   # - privacy:
   #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
