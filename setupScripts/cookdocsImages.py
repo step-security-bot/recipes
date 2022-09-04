@@ -6,4 +6,4 @@ class CookDocsImages:
 		self.recipeTree(os.getcwd())
 
 	def recipeTree(self, walkDir:str) -> None:
-		print('WORKTODO', walkDir)
+		print('WORKTODO', os.listdir(walkDir))
