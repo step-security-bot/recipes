@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        py: [3.7, 3.8, 3.9, 3.10, 3.11]
-        go: [1.18, 1.19]
+        py: ['3.7', '3.8', '3.9', '3.10', '3.11']
+        go: ['1.18', '1.19']
     steps:
       - uses: step-security/harden-runner@v1
         with:
