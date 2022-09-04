@@ -34,7 +34,7 @@ jobs:
           check-latest: true
           # Must be disabled when no `go.sum`
           # cache: true
-      - run: echo '${{ steps.sg.outputs }}'
+      - run: echo '${{fromJson(steps.sg.outputs)}}'
       - run: python3 setup.py
         env:
           CI_SYSTEM_OVERRIDE: 0
