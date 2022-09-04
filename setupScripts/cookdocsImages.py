@@ -21,10 +21,10 @@ class CookDocsImages:
 	
 	def moveAsset(self, root, filename) -> None:
 		# Check if assets folder exists
-		temp = os.path.join(root, 'assets/images')
 		if os.path.isdir(temp):
 			print("assets exists")
 		else:
 			print("assets doesn't exist")
+		imageRoot = os.path.join(root, 'assets/images')
 			os.system(f"ls -la {root}")
 		# shutil.move(os.path.join(root, filename), os.path.join(root, 'assets/images', self.standardizeName(filename)))
