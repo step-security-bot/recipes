@@ -21,6 +21,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: actions/setup-python@v4
+        id: sp
         with:
           python-version: ${{ matrix.py }}
           check-latest: true
@@ -37,14 +38,14 @@ jobs:
           CI_SYSTEM_OVERRIDE: 0
           ENABLED_GIT_REVISION_DATE: true
           SITE_URL: https://demosjarco.github.io/recipes/
-      - run: find . -type f -exec sha512sum {} \; > 'py-${{ matrix.py }}-go-${{ matrix.go }}-hashes.sha512'
+      - run: find . -type f -exec sha512sum {} \; > 'py-${{ steps.sp.outputs.python-version }}-go-${{ matrix.go }}-hashes.sha512'
       - uses: actions/upload-artifact@v3
         with:
-          name: py-${{ matrix.py }}-go-${{ matrix.go }}-hashes.sha512
-          path: '${{ github.workspace }}/py-${{ matrix.py }}-go-${{ matrix.go }}-hashes.sha512'
+          name: py-${{ steps.sp.outputs.python-version }}-go-${{ matrix.go }}-hashes.sha512
+          path: '${{ github.workspace }}/py-${{ steps.sp.outputs.python-version }}-go-${{ matrix.go }}-hashes.sha512'
           if-no-files-found: error
       - uses: actions/upload-artifact@v3
         with:
-          name: py-${{ matrix.py }}-go-${{ matrix.go }}
+          name: py-${{ steps.sp.outputs.python-version }}-go-${{ matrix.go }}
           path: ${{ github.workspace }}
           if-no-files-found: error
