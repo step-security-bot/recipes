@@ -3,7 +3,7 @@ import os
 
 class CookDocsImages:
 	def __init__(self) -> None:
-		self.recipeTree(f"{os.getcwd()}/site")
+		self.recipeTree(f"{os.getcwd()}/recipes")
 
 	def recipeTree(self, walkDir:str) -> None:
 		print('WORKTODO')
