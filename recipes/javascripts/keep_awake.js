@@ -19,8 +19,10 @@ class KeepAwake {
 	}
 
 	#buttonToggle() {
-		const ischecked = $(this.#checkboxSelector).is(":checked");
-		console.log(ischecked);
+		$(() => {
+			const ischecked = $(this.#checkboxSelector).is(":checked");
+			console.log(ischecked);
+		})
 	}
 }
 
