@@ -6,10 +6,11 @@ if ("wakeLock" in navigator) {
 
 function createButton() {
 	$(() => {
-		$(`<form class="md-header__option">
+		const button = $(`<form class="md-header__option">
 			<input id="keepAwake" type="checkbox" />
 			<label for="keepAwake">Keep Awake</label>
-		</form>`).insertBefore($("header nav .md-header__option").first());
+		</form>`);
+		button.insertBefore($("header nav .md-header__option").first());
 		button.change(buttonToggle());
 	});
 }
