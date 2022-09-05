@@ -115,6 +115,7 @@ plugins:
         - javascripts/keep_awake.js
       css_files:
         - stylesheets/full_width.css
+        - stylesheets/keep_awake.css
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
