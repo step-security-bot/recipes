@@ -4,7 +4,7 @@ class KeepAwake {
 	constructor() {
 		if ("wakeLock" in navigator) {
 			$(function () {
-				$(`<form>
+				$(`<form class="md-header__option">
 					<input id="keepAwake" type="checkbox" />
 					<label for="keepAwake">Keep Awake</label>
 				</form>`).insertBefore($("header nav .md-header__option").first());
