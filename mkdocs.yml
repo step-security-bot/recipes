@@ -67,6 +67,12 @@ extra:
       # _x_tr_sl = source language
       # _x_tr_tl = translation language
       # _x_tr_hl = google translate ui language
+    - name: Spanish
+      lang: 'es'
+      link: 'https://translate.google.com/translate?sl=en&tl=es&hl=es&u=%GT_RELATIVE_URL%'
+      # _x_tr_sl = source language
+      # _x_tr_tl = translation language
+      # _x_tr_hl = google translate ui language
   social:
     - icon: fontawesome/solid/server
       link: https://recipes.demosjarco.dev
