@@ -57,11 +57,9 @@ theme:
   custom_dir: overrides
 extra:
   alternate:
-    # Original Language
     - name: English
       lang: 'en'
       link: '%GT_RELATIVE_URL%'  # For relative urls back to original language
-      # Extra languages
     - name: Romanian
       lang: 'ro'
       link: 'https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=%GT_RELATIVE_URL%'
