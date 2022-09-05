@@ -11,11 +11,13 @@ function createButton() {
 			<label for="keepAwake">Keep Awake</label>
 		</form>`);
 		button.insertBefore($("header nav .md-header__option").first());
-		button.change(buttonToggle());
+		button.change(() => {
+			const ischecked = $(this).is(":checked");
+			console.log(ischecked);
+		});
 	});
 }
 
 function buttonToggle() {
-	const ischecked = $(this).is(":checked");
-	console.log(ischecked);
+	
 }
