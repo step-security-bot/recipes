@@ -64,7 +64,7 @@ extra:
       # Extra languages
     - name: Romanian
       lang: 'ro'
-      link: 'https://vic--recipes-pages-dev.translate.goog/?_x_tr_sl=en&_x_tr_tl=ro&_x_tr_hl=ro'
+      link: 'https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=%GT_RELATIVE_URL%'
       # https://translate.google.com/translate?sl=en&tl=ro&hl=en&u=https://vic-recipes.pages.dev/Breakfasts/fluffiest-pancakes/&client=webapp
       # _x_tr_sl = source language
       # _x_tr_tl = translation language
