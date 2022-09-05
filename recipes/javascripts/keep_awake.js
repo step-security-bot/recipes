@@ -3,13 +3,26 @@
 class KeepAwake {
 	constructor() {
 		if ("wakeLock" in navigator) {
-			$(function () {
-				$(`<form class="md-header__option">
-					<input id="keepAwake" type="checkbox" />
-					<label for="keepAwake">Keep Awake</label>
-				</form>`).insertBefore($("header nav .md-header__option").first());
-			});
+			this.#createButton();
 		}
+	}
+
+	#createButton() {
+		$(function () {
+			const button = $(`<form class="md-header__option">
+				<input id="keepAwake" type="checkbox" />
+				<label for="keepAwake">Keep Awake</label>
+			</form>`);
+			button.insertBefore($("header nav .md-header__option").first());
+			button.change(this.#buttonToggle());
+		});
+	}
+
+	#buttonToggle() {
+		$(function () {
+			const ischecked = $(this).is(":checked");
+			console.log(ischecked);
+		});
 	}
 }
 
