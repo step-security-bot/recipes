@@ -86,6 +86,7 @@ extra_javascript:
   - javascripts/keep_awake.js
 extra_css:
   - stylesheets/full_width.css
+  - stylesheets/keep_awake.css
 markdown_extensions:
   - smarty
   - toc:
