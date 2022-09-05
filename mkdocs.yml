@@ -108,7 +108,7 @@ plugins:
       htmlmin_opts:
         remove_comments: true
         reduce_boolean_attributes: true
-      minify_js: true
+      minify_js: false
       minify_css: true
       js_files:
         - javascripts/keep_awake.js
