@@ -53,6 +53,7 @@ class KeepAwake {
 	#unlockScreen() {
 		if (typeof screenLock !== "undefined" && screenLock != null) {
 			this.#screenLock.release().then(() => {
+				this.#screenLock = null;
 				$(() => {
 					$(this.#checkboxSelector).prop("checked", false);
 				});
