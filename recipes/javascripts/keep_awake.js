@@ -2,7 +2,7 @@
 // https://www.educative.io/answers/how-to-keep-your-screen-awake-using-javascript
 class KeepAwake {
 	#checkboxSelector = "header nav form.md-header__option input#keepAwake";
-	#screenlock;
+	#screenLock;
 	constructor() {
 		if ("wakeLock" in navigator) {
 			this.#createButton();
@@ -16,7 +16,10 @@ class KeepAwake {
 				<label for="keepAwake">Keep Awake</label>
 			</form>`).insertBefore($("header nav .md-header__option").first());
 			$(document).on("visibilitychange", () => {
-				if (screenLock !== null && document.visibilityState === 'visible') {
+				if (
+					screenLock !== null &&
+					document.visibilityState === "visible"
+				) {
 					this.#lockScreen();
 				}
 			});
@@ -37,7 +40,7 @@ class KeepAwake {
 	#lockScreen() {
 		try {
 			navigator.wakeLock.request("screen").then((lock) => {
-				this.#screenlock = lock;
+				this.#screenLock = lock;
 				$(() => {
 					$(this.#checkboxSelector).prop("checked", true);
 				});
