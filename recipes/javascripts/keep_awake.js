@@ -24,7 +24,6 @@ class KeepAwake {
 			$(this.#checkboxSelector).change(() => {
 				$(() => {
 					const ischecked = $(this.#checkboxSelector).prop("checked");
-					console.log(ischecked);
 					if (ischecked) {
 						this.#lockScreen();
 					} else {
