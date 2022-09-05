@@ -83,7 +83,7 @@ extra:
       link: https://vic-recipes.pages.dev
       name: Cloudflare Pages
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/full_width.css
 markdown_extensions:
   - smarty
   - toc:
@@ -109,7 +109,7 @@ plugins:
       minify_js: true
       minify_css: true
       css_files:
-        - stylesheets/extra.css
+        - stylesheets/full_width.css
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
