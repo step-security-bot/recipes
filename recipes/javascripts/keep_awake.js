@@ -14,11 +14,11 @@ class KeepAwake {
 				<input id="keepAwake" type="checkbox" />
 				<label for="keepAwake">Keep Awake</label>
 			</form>`).insertBefore($("header nav .md-header__option").first());
-			$(this.#checkboxSelector).change(this.#buttonToggle());
+			$(this.#checkboxSelector).change(this.buttonToggle());
 		});
 	}
 
-	#buttonToggle() {
+	buttonToggle() {
 		$(() => {
 			const ischecked = $(this.#checkboxSelector).prop("checked");
 			console.log(ischecked);
