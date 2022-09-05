@@ -39,6 +39,8 @@ jobs:
           CI_SYSTEM_OVERRIDE: 0
           ENABLED_GIT_REVISION_DATE: true
           SITE_URL: https://demosjarco.github.io/recipes/
+          RO_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
+          ES_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=es&hl=es&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
       - run: find . -type f -exec sha256sum {} \; > 'py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256'
       - uses: actions/upload-artifact@v3
         with:
