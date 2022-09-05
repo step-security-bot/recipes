@@ -47,7 +47,7 @@ theme:
     text: Roboto
     code: Red Hat Mono
   features:
-    - navigation.instant
+    # - navigation.instant
     - navigation.tracking
     - navigation.top
     - search.suggest
@@ -55,6 +55,17 @@ theme:
     - search.share
   custom_dir: overrides
 extra:
+  alternate:
+    # Original Language
+    - name: English
+      lang: 'en'
+      link: '%GT_RELATIVE_URL%'  # For relative urls back to original language
+      # Extra languages
+    - name: Romanian
+      lang: 'ro'
+      link: 'https://translate.goog/?_x_tr_sl=en&_x_tr_tl=ro'
+      # _x_tr_sl = source language
+      # _x_tr_tl = translation language
   social:
     - icon: fontawesome/solid/server
       link: https://recipes.demosjarco.dev
@@ -98,5 +109,6 @@ plugins:
       enable_creation_date: true
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, false]
   - glightbox
+  - google-translate
   # - privacy:
   #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
