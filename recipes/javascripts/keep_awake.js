@@ -41,6 +41,11 @@ class KeepAwake {
 				$(() => {
 					$(this.#checkboxSelector).prop("checked", true);
 				});
+				this.#screenLock.onrelease = () => {
+					$(() => {
+						$(this.#checkboxSelector).prop("checked", false);
+					});
+				};
 			});
 		} catch (error) {
 			console.error(error);
