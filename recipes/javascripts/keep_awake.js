@@ -51,7 +51,7 @@ class KeepAwake {
 				this.#screenLock.onrelease = () => {
 					this.#screenLock = null;
 					$(() => {
-						$(this.#checkboxSelector).prop("checked", false);
+						$(this.#checkboxSelector).prop("checked", !this.#screenLock.released);
 					});
 				};
 			});
