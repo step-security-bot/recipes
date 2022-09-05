@@ -109,6 +109,7 @@ plugins:
       enable_creation_date: true
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, false]
   - glightbox
-  - google-translate
+  - google-translate:
+      url: !ENV [SITE_URL, CF_PAGES_URL, 'https://recipes.demosjarco.dev']
   # - privacy:
   #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
