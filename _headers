@@ -7,3 +7,5 @@
   Referrer-Policy: no-referrer-when-downgrade
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
+  Access-Control-Allow-Origin: https://translate.goog
+  Vary: Origin
