@@ -6,6 +6,10 @@ export class KeepAwake {
 			$(function () {
 				console.log("wake lock available");
 			});
+		} else {
+			$(function () {
+				console.log("wake lock unavailable");
+			});
 		}
 	}
 }
