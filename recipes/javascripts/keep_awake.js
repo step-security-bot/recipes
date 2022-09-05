@@ -15,7 +15,9 @@ function createButton() {
 		$(checkboxSelector).change(() => {
 			const checked1 = $(this).is(":checked");
 			const checked2 = $(this).prop("checked");
-			console.log(checked1, checked2);
+			const checked3 = $(checkboxSelector).is(":checked");
+			const checked4 = $(checkboxSelector).prop("checked");
+			console.log(checked1, checked2, checked3, checked4);
 		});
 	});
 }
