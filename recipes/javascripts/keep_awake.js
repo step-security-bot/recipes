@@ -49,9 +49,11 @@ class KeepAwake {
 				});
 				// call back when system auto releases wake lock
 				this.#screenLock.onrelease = () => {
-					this.#screenLock = null;
 					$(() => {
 						$(this.#checkboxSelector).prop("checked", !this.#screenLock.released);
+						if (this.#screenLock.released) {
+							this.#screenLock = null;
+						}
 					});
 				};
 			});
