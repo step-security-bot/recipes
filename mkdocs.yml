@@ -82,6 +82,8 @@ extra:
     - icon: fontawesome/brands/cloudflare
       link: https://vic-recipes.pages.dev
       name: Cloudflare Pages
+extra_javascript:
+  - javascripts/keep_awake.js
 extra_css:
   - stylesheets/full_width.css
 markdown_extensions:
@@ -108,6 +110,8 @@ plugins:
         reduce_boolean_attributes: true
       minify_js: true
       minify_css: true
+      js_files:
+        - javascripts/keep_awake.js
       css_files:
         - stylesheets/full_width.css
   - git-revision-date-localized:
