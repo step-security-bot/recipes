@@ -16,23 +16,23 @@ class KeepAwake {
 				<label for="keepAwake">Keep Awake</label>
 			</form>`).insertBefore($("header nav .md-header__option").first());
 			$(document).on("visibilitychange", () => {
-				this.#screenLock();
+					this.#lockScreen();
 			});
 			$(this.#checkboxSelector).change(() => {
 				$(() => {
 					const ischecked = $(this.#checkboxSelector).prop("checked");
 					console.log(ischecked);
 					if (ischecked) {
-						this.#screenLock();
+						this.#lockScreen();
 					} else {
-						this.#screenUnlock();
+						this.#unlockScreen();
 					}
 				});
 			});
 		});
 	}
 
-	#screenLock() {
+	#lockScreen() {
 		try {
 			navigator.wakeLock.request("screen").then((lock) => {
 				this.#screenlock = lock;
@@ -48,7 +48,7 @@ class KeepAwake {
 		}
 	}
 
-	#screenUnlock() {
+	#unlockScreen() {
 		if (typeof screenLock !== "undefined" && screenLock != null) {
 			this.#screenLock.release().then(() => {
 				$(() => {
