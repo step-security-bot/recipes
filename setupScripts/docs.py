@@ -12,7 +12,7 @@ class Docs:
 		CookLang()
 		CookDocs()
 		CookDocsImages()
-		self.ciTweaks()
+		# self.ciTweaks()
 		self.generate()
 		self.siteExtraConfig()
 	
