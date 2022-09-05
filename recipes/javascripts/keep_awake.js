@@ -13,8 +13,9 @@ function createButton() {
 			<label for="keepAwake">Keep Awake</label>
 		</form>`).insertBefore($("header nav .md-header__option").first());
 		$(checkboxSelector).change(() => {
-			const ischecked = $(this).is(":checked");
-			console.log(ischecked);
+			const checked1 = $(this).is(":checked");
+			const checked2 = $(this).prop("checked");
+			console.log(checked1, checked2);
 		});
 	});
 }
