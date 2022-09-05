@@ -10,8 +10,8 @@ function createButton() {
 			<input id="keepAwake" type="checkbox" />
 			<label for="keepAwake">Keep Awake</label>
 		</form>`).insertBefore($("header nav .md-header__option").first());
-		$('header nav .md-header__option form input#keepAwake[type="checkbox"]').change(() => {
 			const ischecked = $(this).is(":checked");
+		$('header nav form.md-header__option input#keepAwake[type="checkbox"]').change(() => {
 			console.log(ischecked);
 		});
 	});
