@@ -5,3 +5,7 @@ header nav form.md-header__option {
 header nav form.md-header__option label {
 	font-size: small;
 }
+
+header nav form.md-header__option input:disabled + label {
+	color: rgba(255, 255, 255, 0.8);
+}
