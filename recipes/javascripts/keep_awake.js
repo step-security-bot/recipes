@@ -16,8 +16,6 @@ function createButton() {
 }
 
 function buttonToggle() {
-	$(() => {
-		const ischecked = $(this).is(":checked");
-		console.log(ischecked);
-	});
+	const ischecked = $(this).is(":checked");
+	console.log(ischecked);
 }
