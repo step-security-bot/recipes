@@ -15,8 +15,6 @@ function createButton() {
 }
 
 function buttonToggle() {
-	$(() => {
-		const ischecked = $(this).prop("checked");
-		console.log(ischecked);
-	});
+	const ischecked = $(this).prop("checked");
+	console.log(ischecked);
 }
