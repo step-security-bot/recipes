@@ -1,6 +1,6 @@
 "use strict";
 // https://www.educative.io/answers/how-to-keep-your-screen-awake-using-javascript
-export class KeepAwake {
+class KeepAwake {
 	constructor() {
 		if ("wakeLock" in navigator) {
 			$(function () {
@@ -13,3 +13,5 @@ export class KeepAwake {
 		}
 	}
 }
+
+new KeepAwake();
