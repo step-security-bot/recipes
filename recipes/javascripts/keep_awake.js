@@ -69,19 +69,7 @@ class KeepAwake {
 		// Make sure wake lock still retained
 		if (typeof this.#screenLock !== "undefined" && this.#screenLock != null) {
 			// Release wake lock
-			this.#screenLock.release().then(() => {
-				this.#screenLock = null;
-				$(() => {
-					$(this.#checkboxSelector).prop("checked", false);
-				});
-			});
-		// Wake lock lost somehow, just drop it all
-		} else {
-			console.error(screenLock);
-			this.#screenLock = null;
-			$(() => {
-				$(this.#checkboxSelector).prop("checked", false);
-			});
+			this.#screenLock.release();
 		}
 	}
 }
