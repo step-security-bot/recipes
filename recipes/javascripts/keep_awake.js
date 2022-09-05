@@ -42,6 +42,7 @@ class KeepAwake {
 					$(this.#checkboxSelector).prop("checked", true);
 				});
 				this.#screenLock.onrelease = () => {
+					this.#screenLock = null;
 					$(() => {
 						$(this.#checkboxSelector).prop("checked", false);
 					});
@@ -49,6 +50,7 @@ class KeepAwake {
 			});
 		} catch (error) {
 			console.error(error);
+			this.#screenLock = null;
 			$(() => {
 				$(this.#checkboxSelector).prop("checked", false);
 			});
@@ -65,6 +67,7 @@ class KeepAwake {
 			});
 		} else {
 			console.error(screenLock);
+			this.#screenLock = null;
 			$(() => {
 				$(this.#checkboxSelector).prop("checked", false);
 			});
