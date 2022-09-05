@@ -1,27 +1,20 @@
 "use strict";
 // https://www.educative.io/answers/how-to-keep-your-screen-awake-using-javascript
-class KeepAwake {
-	constructor() {
-		if ("wakeLock" in navigator) {
-			this.#createButton();
-		}
-	}
-
-	#createButton() {
-		$(() => {
-			const button = $(`<form class="md-header__option">
-				<input id="keepAwake" type="checkbox" />
-				<label for="keepAwake">Keep Awake</label>
-			</form>`);
-			button.insertBefore($("header nav .md-header__option").first());
-			button.change(() => {
-				$(() => {
-					const ischecked = $(this).is(":checked");
-					console.log(ischecked);
-				});
-			});
-		});
-	}
+if ("wakeLock" in navigator) {
+	createButton();
 }
 
-new KeepAwake();
+function createButton() {
+	$(() => {
+		$(`<form class="md-header__option">
+			<input id="keepAwake" type="checkbox" />
+			<label for="keepAwake">Keep Awake</label>
+		</form>`).insertBefore($("header nav .md-header__option").first());
+		button.change(() => {
+			$(() => {
+				const ischecked = $(this).is(":checked");
+				console.log(ischecked);
+			});
+		});
+	});
+}
