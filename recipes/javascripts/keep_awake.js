@@ -5,6 +5,10 @@ class KeepAwake {
 		if ("wakeLock" in navigator) {
 			$(function () {
 				console.log("wake lock available");
+				$(`<form>
+					<input id="keepAwake" type="checkbox" />
+					<label for="keepAwake">Keep Awake</label>
+				</form>`).insertBefore($("header nav .md-header__option").first());
 			});
 		} else {
 			$(function () {
