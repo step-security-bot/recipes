@@ -63,7 +63,7 @@ extra:
       # Extra languages
     - name: Romanian
       lang: 'ro'
-      link: 'https://translate.goog/?_x_tr_sl=en&_x_tr_tl=ro&_x_tr_hl=ro'
+      link: 'https://vic--recipes-pages-dev.translate.goog/?_x_tr_sl=en&_x_tr_tl=ro&_x_tr_hl=ro'
       # _x_tr_sl = source language
       # _x_tr_tl = translation language
       # _x_tr_hl = google translate ui language
