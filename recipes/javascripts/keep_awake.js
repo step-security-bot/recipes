@@ -1,5 +1,11 @@
 "use strict";
 // https://www.educative.io/answers/how-to-keep-your-screen-awake-using-javascript
-$(function () {
-	console.log("keep awake jquery test");
-});
+class KeepAwake {
+	constructor() {
+		if ("wakeLock" in navigator) {
+			$(function () {
+				console.log("wake lock available");
+			});
+		}
+	}
+}
