@@ -16,10 +16,7 @@ class KeepAwake {
 				<label for="keepAwake">Keep Awake</label>
 			</form>`).insertBefore($("header nav .md-header__option").first());
 			$(document).on("visibilitychange", () => {
-				if (
-					screenLock !== null &&
-					document.visibilityState === "visible"
-				) {
+				if (this.#screenLock !== null && document.visibilityState === "visible") {
 					this.#lockScreen();
 				}
 			});
@@ -54,7 +51,7 @@ class KeepAwake {
 	}
 
 	#unlockScreen() {
-		if (typeof screenLock !== "undefined" && screenLock != null) {
+		if (typeof this.#screenLock !== "undefined" && this.#screenLock != null) {
 			this.#screenLock.release().then(() => {
 				this.#screenLock = null;
 				$(() => {
