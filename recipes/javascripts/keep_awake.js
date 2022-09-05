@@ -16,7 +16,9 @@ class KeepAwake {
 				<label for="keepAwake">Keep Awake</label>
 			</form>`).insertBefore($("header nav .md-header__option").first());
 			$(document).on("visibilitychange", () => {
+				if (screenLock !== null && document.visibilityState === 'visible') {
 					this.#lockScreen();
+				}
 			});
 			$(this.#checkboxSelector).change(() => {
 				$(() => {
