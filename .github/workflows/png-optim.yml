@@ -25,16 +25,17 @@ jobs:
             ~/.rustup/update-hashes/stable-*
           key: rs-toolchain_${{ hashFiles('~/.rustup/update-hashes/stable*') }}
       # https://github.com/actions/cache/blob/main/examples.md#rust---cargo
-      - name: Rust Package Cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            target/
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      # https://doc.rust-lang.org/cargo/reference/environment-variables.html
+      # - name: Rust Package Cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       ~/.cargo/bin/
+      #       ~/.cargo/registry/index/
+      #       ~/.cargo/registry/cache/
+      #       ~/.cargo/git/db/
+      #       target/
+      #     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - uses: actions-rs/toolchain@v1
         id: sr
         with:
