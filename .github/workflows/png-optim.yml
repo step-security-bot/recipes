@@ -52,5 +52,9 @@ jobs:
         id: cpu-cores
       - name: Optimize PNGs
         run: oxipng -o max -r --strip safe -i 0 -t ${{ steps.cpu-cores.outputs.count }} ${{ github.workspace }}
+      - name: Git Setup
+        run: |
+          git config user.email "oxipngbot@demosjarco.dev"
+          git config user.name "Oxipng Bot"
       - run: git commit -am "Optimized PNG"
       - run: git push
