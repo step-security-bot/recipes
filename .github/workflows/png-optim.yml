@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    strategy:
-      matrix:
-        rust: [stable]
     steps:
       - uses: step-security/harden-runner@v1
         with:
@@ -24,9 +21,9 @@ jobs:
         with:
           path: |
             ~/.rustup/settings.toml
-            ~/.rustup/toolchains/${{ matrix.rust }}-*
-            ~/.rustup/update-hashes/${{ matrix.rust }}-*
-          key: rs-toolchain_${{ hashFiles('~/.rustup/update-hashes/${{ matrix.rust }}*') }}
+            ~/.rustup/toolchains/stable-*
+            ~/.rustup/update-hashes/stable-*
+          key: rs-toolchain_${{ hashFiles('~/.rustup/update-hashes/stable*') }}
       # https://github.com/actions/cache/blob/main/examples.md#rust---cargo
       - name: Rust Package Cache
         uses: actions/cache@v3
@@ -41,7 +38,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         id: sr
         with:
-          toolchain: ${{ matrix.rust }}
+          toolchain: stable
           default: true
           override: true
       - name: Install oxipng
