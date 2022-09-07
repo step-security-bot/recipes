@@ -59,7 +59,7 @@ extra:
   alternate:
     - name: English
       lang: 'en'
-      link: '%GT_RELATIVE_URL%'  # For relative urls back to original language
+      link: '/%GT_RELATIVE_URL%'  # For relative urls back to original language
     - name: Romanian
       lang: 'ro'
       link: !ENV [RO_TRANSLATE_URL, 'https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://recipes.demosjarco.dev/%GT_RELATIVE_URL%']
