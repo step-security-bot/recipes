@@ -16,7 +16,7 @@ class CookDocs:
 		elif (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
 			gopath = '$GOPATH/bin/'
 
-		print('running: ', f'{gopath}cook-docs', flush=True)
+		print('running:', f'{gopath}cook-docs', flush=True)
 		cookDocsAttempt = os.system(f"{gopath}cook-docs")
 		if cookDocsAttempt != 0:
 			raise Exception(f"cook-docs exited with code: {cookDocsAttempt}")

@@ -38,7 +38,7 @@ class Docs:
 		elif self.systemType == CiSystem.GITHUB:
 			subcommand = 'gh-deploy --force'
 		
-		print('running: ', f'mkdocs {subcommand}', flush=True)
+		print('running:', f'mkdocs {subcommand}', flush=True)
 		runDocsAttempt = os.system(f"mkdocs {subcommand}")
 		if runDocsAttempt != 0:
 			raise Exception(f"mkdocs exited with code: {runDocsAttempt}")
