@@ -1,8 +1,8 @@
 import os
-from .cisystem import CiSystem
-from .cooklang import CookLang
-from .cookdocs import CookDocs
-from .cookdocsImages import CookDocsImages
+from .ciSystem import CiSystem
+from .cookLang import CookLang
+from .cookDocs import CookDocs
+from .cookDocsImages import CookDocsImages
 import shutil
 
 class Docs:

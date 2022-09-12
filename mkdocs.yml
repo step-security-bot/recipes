@@ -82,10 +82,10 @@ extra:
       link: https://vic-recipes.pages.dev
       name: Cloudflare Pages
 extra_javascript:
-  - javascripts/keep_awake.js
+  - javascripts/keepAwake.js
 extra_css:
-  - stylesheets/full_width.css
-  - stylesheets/keep_awake.css
+  - stylesheets/fullWidth.css
+  - stylesheets/keepAwake.css
 markdown_extensions:
   - smarty
   - toc:
@@ -111,10 +111,10 @@ plugins:
       minify_js: true
       minify_css: true
       js_files:
-        - javascripts/keep_awake.js
+        - javascripts/keepAwake.js
       css_files:
-        - stylesheets/full_width.css
-        - stylesheets/keep_awake.css
+        - stylesheets/fullWidth.css
+        - stylesheets/keepAwake.css
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
