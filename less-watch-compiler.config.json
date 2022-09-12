@@ -1,0 +1,8 @@
+{
+	"watchFolder": "recipes/stylesheets",
+	"outputFolder": "recipes/stylesheets",
+	"sourceMap": true,
+	"runOnce": true,
+	"enableJs": false,
+	"minified": false
+}

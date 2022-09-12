@@ -3,6 +3,7 @@ from .ciSystem import CiSystem
 from .cookLang import CookLang
 from .cookDocs import CookDocs
 from .cookDocsImages import CookDocsImages
+from .lessCompiler import LessCompiler
 import shutil
 
 class Docs:
@@ -12,6 +13,7 @@ class Docs:
 		CookLang()
 		CookDocs()
 		CookDocsImages()
+		LessCompiler()
 		# self.ciTweaks()
 		self.generate()
 		self.siteExtraConfig()
