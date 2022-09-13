@@ -10,7 +10,7 @@ import shutil
 class Docs:
 	def __init__(self) -> None:
 		self.systemType = self.setupEnv()
-		print(self.systemType, os.getenv('CI_SYSTEM_OVERRIDE'), os.getenv('CF_PAGES'), os.getenv('GITHUB_ACTIONS'), flush=True)
+		self.systemDebug()
 		CookLang()
 		CookDocs()
 		CookDocsImages()
@@ -29,6 +29,12 @@ class Docs:
 				return CiSystem.CLOUDFLARE
 			elif (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
 				return CiSystem.GITHUB
+	
+	def systemDebug(self) -> None:
+		print('Detected CI system', self.systemType, flush=True)
+		print('CI_SYSTEM_OVERRIDE', os.getenv('CI_SYSTEM_OVERRIDE'), flush=True)
+		print('CF_PAGES', os.getenv('CF_PAGES'), flush=True)
+		print('GITHUB_ACTIONS', os.getenv('GITHUB_ACTIONS'), flush=True)
 
 	def ciTweaks(self) -> None:
 		with open('mkdocs.yml', 'r') as mkdocsConfigFile:
