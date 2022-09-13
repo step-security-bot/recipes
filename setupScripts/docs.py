@@ -10,7 +10,7 @@ import shutil
 class Docs:
 	def __init__(self) -> None:
 		self.systemType = self.setupEnv()
-		self.systemDebug()
+		# self.systemDebug()
 		CookLang()
 		CookDocs()
 		CookDocsImages()
