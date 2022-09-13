@@ -7,7 +7,6 @@ class CookDocsImages:
 		self.recipeTree(f"{os.getcwd()}/recipes")
 
 	def recipeTree(self, walkDir:str) -> None:
-		print('WORKTODO')
 		for root, dirs, files in os.walk(walkDir):
 			for filename in files:
 				# cook-docs only supports jpg and png https://github.com/nicholaswilde/cook-docs/blob/70a9703a6647cfa857dd8a94c0623149fcd03368/pkg/cook/recipe_info.go#L33
