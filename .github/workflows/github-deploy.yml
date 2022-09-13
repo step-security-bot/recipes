@@ -9,7 +9,7 @@ on:
       - ".vscode/**"
       - "_headers"
   workflow_dispatch:
-concurrency: ${{ github.ref }}
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
   contents: read
