@@ -2,7 +2,7 @@ import subprocess
 
 class LessCompiler:
 	def __init__(self) -> None:
-		self.runLesscpy()
+		self.runLessWatchCompiler()
 
-	def runLesscpy(self) -> None:
 		subprocess.run(["npm", "run", "less"], capture_output=True, check=True, text=True)
+	def runLessWatchCompiler(self) -> None:
