@@ -6,4 +6,4 @@ class LessCompiler:
 		self.runLesscpy()
 
 	def runLesscpy(self) -> None:
-		subprocess.run(["npm", "run", "less"], capture_output=True, check=True)
+		subprocess.run(["npm", "run", "less"], capture_output=True, check=True, text=True)
