@@ -39,11 +39,12 @@ class Docs:
 	
 	def generate(self) -> None:
 		if self.systemType == CiSystem.CLOUDFLARE:
-			subcommand = ['build']
+			subcommand = 'build'
 		elif self.systemType == CiSystem.GITHUB:
-			subcommand = ['gh-deploy', '--force']
+			subcommand = 'gh-deploy --force'
 		
-		subprocess.run(["mkdocs"].extend(subcommand), capture_output=True, check=True, text=True)
+		print('running:', f'mkdocs {subcommand}', flush=True)
+		subprocess.run(["mkdocs", subcommand], capture_output=True, check=True, text=True)
 
 	def siteExtraConfig(self) -> None:
 		if self.systemType == CiSystem.CLOUDFLARE:
