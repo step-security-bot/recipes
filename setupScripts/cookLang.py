@@ -17,10 +17,16 @@ class CookLang:
 	
 	def download(self, downloadUrl:str) -> None:
 		self.zipFileName = Path(downloadUrl).name
-		subprocess.run(["wget", "-nv", downloadUrl, "-O", self.zipFileName], capture_output=True, check=True, text=True)
+		downloadAttempt = subprocess.run(["wget", "-nv", downloadUrl, "-O", self.zipFileName], capture_output=True, check=True, text=True)
+		print(downloadAttempt.stdout, flush=True)
+		print(downloadAttempt.stderr, flush=True)
 	
 	def unzip(self) -> None:
-		subprocess.run(["unzip", "-o", self.zipFileName], capture_output=True, check=True, text=True)
+		unzipAttempt = subprocess.run(["unzip", "-o", self.zipFileName], capture_output=True, check=True, text=True)
+		print(unzipAttempt.stdout, flush=True)
+		print(unzipAttempt.stderr, flush=True)
 	
 	def delzip(self) -> None:
-		subprocess.run(["rm", "-v", self.zipFileName], capture_output=True, check=True, text=True)
+		delzipAttempt = subprocess.run(["rm", "-v", self.zipFileName], capture_output=True, check=True, text=True)
+		print(delzipAttempt.stdout, flush=True)
+		print(delzipAttempt.stderr, flush=True)
