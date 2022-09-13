@@ -7,7 +7,7 @@ class CookDocs:
 		self.run()
 
 	def download(self) -> None:
-		testdebug = subprocess.run(["go", "install", "github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest"], capture_output=True, check=True, text=True)
+		testdebug = subprocess.run(["go", "install", "github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest"], capture_output=True, check=True)
 		print(testdebug)
 
 	def run(self) -> None:
