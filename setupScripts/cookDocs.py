@@ -7,7 +7,8 @@ class CookDocs:
 		self.run()
 
 	def download(self) -> None:
-		subprocess.run(["go", "install", "github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest"], capture_output=True, check=True, text=True)
+		testdebug = subprocess.run(["go", "install", "github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest"], capture_output=True, check=True, text=True)
+		print(testdebug)
 
 	def run(self) -> None:
 		if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
