@@ -44,9 +44,7 @@ class Docs:
 			subcommand = 'gh-deploy --force'
 		
 		print('running:', f'mkdocs {subcommand}', flush=True)
-		runDocsAttempt = os.system(f"mkdocs {subcommand}")
-		if runDocsAttempt != 0:
-			raise Exception(f"mkdocs exited with code: {runDocsAttempt}")
+		subprocess.run(["mkdocs", subcommand], capture_output=True, check=True, text=True)
 
 	def siteExtraConfig(self) -> None:
 		if self.systemType == CiSystem.CLOUDFLARE:
