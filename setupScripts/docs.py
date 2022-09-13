@@ -38,13 +38,14 @@ class Docs:
 			mkdocsConfigFile.write(self.mkdocsConfig)
 	
 	def generate(self) -> None:
+		command =['mkdocs']
 		if self.systemType == CiSystem.CLOUDFLARE:
-			subcommand = 'build'
+			command.append('build')
 		elif self.systemType == CiSystem.GITHUB:
-			subcommand = 'gh-deploy --force'
+			command.append('gh-deploy')
+			command.append('--force')
 		
-		print('running:', f'mkdocs {subcommand}', flush=True)
-		subprocess.run(["mkdocs", subcommand], capture_output=True, check=True, text=True)
+		subprocess.run(command, capture_output=True, check=True, text=True)
 
 	def siteExtraConfig(self) -> None:
 		if self.systemType == CiSystem.CLOUDFLARE:
