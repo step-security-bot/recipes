@@ -16,4 +16,4 @@ class CookDocs:
 			gopath = '$GOPATH/bin/'
 
 		print('running:', f'{gopath}cook-docs', flush=True)
-		subprocess.run([f"{gopath}cook-docs"], capture_output=True, check=True, text=True)
+		subprocess.run([f"{gopath}cook-docs"], capture_output=True, shell=True, check=True, text=True)
