@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "setup.py",
 	"scripts": {
-		"less": "less-watch-compiler"
+		"less": "less-watch-compiler --run-once --source-map recipes/stylesheets recipes/stylesheets"
 	},
 	"repository": {
 		"type": "git",
