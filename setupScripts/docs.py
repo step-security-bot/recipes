@@ -1,4 +1,5 @@
 import os
+import subprocess
 from .ciSystem import CiSystem
 from .cookLang import CookLang
 from .cookDocs import CookDocs
@@ -23,6 +24,8 @@ class Docs:
 			return CiSystem(int(os.getenv('CI_SYSTEM_OVERRIDE')))
 		else:
 			if (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
+				# Install node packages since CF only installs python packages by default
+				subprocess.run(["npm", "ci"], capture_output=True, check=True, text=True)
 				return CiSystem.CLOUDFLARE
 			elif (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
 				return CiSystem.GITHUB
