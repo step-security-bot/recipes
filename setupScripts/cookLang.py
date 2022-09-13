@@ -1,6 +1,6 @@
 from ghapi.all import GhApi
 import re
-import os
+import subprocess
 from pathlib import Path
 
 class CookLang:
@@ -17,16 +17,10 @@ class CookLang:
 	
 	def download(self, downloadUrl:str) -> None:
 		self.zipFileName = Path(downloadUrl).name
-		downloadAttempt = os.system(f"wget -nv {downloadUrl} -O {self.zipFileName}")
-		if downloadAttempt != 0:
-			raise Exception(f"wget exited with code: {downloadAttempt}")
+		subprocess.run(["wget", "-nv", downloadUrl, "-O", self.zipFileName], capture_output=True, check=True, text=True)
 	
 	def unzip(self) -> None:
-		unzipAttempt = os.system(f"unzip -o {self.zipFileName}")
-		if unzipAttempt != 0:
-			raise Exception(f"unzip exited with code: {unzipAttempt}")
+		subprocess.run(["unzip", "-o", self.zipFileName], capture_output=True, check=True, text=True)
 	
 	def delzip(self) -> None:
-		delzipAttempt = os.system(f"rm -v {self.zipFileName}")
-		if delzipAttempt != 0:
-			raise Exception(f"rm exited with code: {delzipAttempt}")
+		subprocess.run(["rm", "-v", self.zipFileName], capture_output=True, check=True, text=True)
