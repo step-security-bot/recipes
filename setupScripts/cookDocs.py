@@ -1,3 +1,4 @@
+import subprocess
 import os
 
 class CookDocs:
@@ -6,9 +7,7 @@ class CookDocs:
 		self.run()
 
 	def download(self) -> None:
-		goInstallAttempt = os.system("go install github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest")
-		if goInstallAttempt != 0:
-			raise Exception(f"go exited with code: {goInstallAttempt}")
+		subprocess.run(["go", "install", "github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest"], capture_output=True, check=True, text=True)
 
 	def run(self) -> None:
 		if (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
@@ -17,6 +16,4 @@ class CookDocs:
 			gopath = '$GOPATH/bin/'
 
 		print('running:', f'{gopath}cook-docs', flush=True)
-		cookDocsAttempt = os.system(f"{gopath}cook-docs")
-		if cookDocsAttempt != 0:
-			raise Exception(f"cook-docs exited with code: {cookDocsAttempt}")
+		subprocess.run([f"{gopath}cook-docs"], capture_output=True, check=True, text=True)
