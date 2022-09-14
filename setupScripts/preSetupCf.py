@@ -5,7 +5,7 @@ class PreSetupCF:
 		self.isSudo = isSudo
 
 	def installMkDocsDeps(self) -> None:
-		commands = ["apt", "-y", "libcairo2-dev", "libfreetype6-dev", "libffi-dev", "libjpeg-dev", "libpng-dev", "libz-dev"]
+		commands = ["apt", "install", "-y", "libcairo2-dev", "libfreetype6-dev", "libffi-dev", "libjpeg-dev", "libpng-dev", "libz-dev"]
 		if not self.isSudo:
 			commands.insert(0, "sudo")
 		aptInstallAttempt = subprocess.run(commands, capture_output=True, check=True, text=True)
