@@ -1,18 +1,3 @@
-<script type="application/ld+json">
-{
-	"@context": "https://schema.org/",
-	"@type": "Recipe",
-	"name": "{{ template ".Info.RecipeName" . }}",
-	"image": [
-		"{{ template ".Info.ImageFilePath" . }}"
-	],
-	"author": {
-		"@type": "Person",
-		"name": "Victor I"
-	},
-}
-</script>
-
 {{ template "cook.headerSection" . }}
 
 {{ template "cook.imageSection" . }}
