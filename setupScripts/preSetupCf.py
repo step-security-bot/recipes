@@ -1,17 +1,17 @@
 import subprocess
+import os
 
 class PreSetupCF:
 	def __init__(self, isSudo) -> None:
 		self.isSudo = isSudo
 
 	def installMkDocsDeps(self) -> None:
-		aptUpdateAttempt = subprocess.run(['sudo', 'apt', 'update'], capture_output=True, shell=True, check=True, text=True)
-		print(aptUpdateAttempt.stdout, flush=True)
-		print(aptUpdateAttempt.stderr, flush=True)
-		aptInstallAttempt = subprocess.run(['sudo', 'apt', 'install', '-y', 'libcairo2-dev', 'libfreetype6-dev', 'libffi-dev', 'libjpeg-dev', 'libpng-dev', 'libz-dev'], capture_output=True, shell=True, check=True, text=True)
-		print(aptInstallAttempt.stdout, flush=True)
-		print(aptInstallAttempt.stderr, flush=True)
-
+		testCommand1 = f'{self.isSudo == True and "" or "sudo"} apt update'
+		print('RUNNING:', testCommand1)
+		os.system(testCommand1)
+		testCommand2 = f'{self.isSudo == True and "" or "sudo"} apt install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev'
+		print('RUNNING:', testCommand2)
+		os.system(testCommand2)
 	def npmCi(self, production:bool = False) -> None:
 		npmCiAttempt = subprocess.run(["npm", "ci", f"--production={production == True and 'true' or 'false'}"], capture_output=True, check=True, text=True)
 		print(npmCiAttempt.stdout, flush=True)
