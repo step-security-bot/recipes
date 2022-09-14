@@ -24,6 +24,10 @@ class Docs:
 			return CiSystem(int(os.getenv('CI_SYSTEM_OVERRIDE')))
 		else:
 			if (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
+				# Install MkDocs dependencies
+				aptInstallAttempt = subprocess.run(["sudo", "apt", "-y", "libcairo2-dev", "libfreetype6-dev", "libffi-dev", "libjpeg-dev", "libpng-dev", "libz-dev"], capture_output=True, check=True, text=True)
+				print(aptInstallAttempt.stdout, flush=True)
+				print(aptInstallAttempt.stderr, flush=True)
 				# Install node packages since CF only installs python packages by default
 				npmCiAttempt = subprocess.run(["npm", "ci", "--production=false"], capture_output=True, check=True, text=True)
 				print(npmCiAttempt.stdout, flush=True)

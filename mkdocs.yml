@@ -125,5 +125,6 @@ plugins:
         - "*.gotmpl"
   - glightbox
   - google-translate
+  - social
   # - privacy:
   #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
