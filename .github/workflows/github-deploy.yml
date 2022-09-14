@@ -21,40 +21,40 @@ jobs:
       contents: write
       pages: write
     steps:
-    - uses: step-security/harden-runner@v1
-      with:
-          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-        check-latest: true
-        cache: 'pip'
-    - run: pip install -r requirements.txt
-    - uses: actions/setup-go@v3
-      with:
-        go-version: '1.x'
-        check-latest: true
-        # Must be disabled when no `go.sum`
-        # cache: true
-    - uses: actions/setup-node@v3
-      with:
-        node-version: lts/*
-        check-latest: true
-        cache: 'npm'
-    - run: npm ci --production=false
-    - name: MkDocs cache
-      uses: actions/cache@v3
-      with:
-        key: ${{ github.ref }}
-        path: .cache
-    - run: python3 setup.py
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_ENV: production
-          ENABLED_GIT_REVISION_DATE: true
-          SITE_URL: https://demosjarco.github.io/recipes/
-          RO_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
-          ES_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=es&hl=es&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
+      - uses: step-security/harden-runner@v1
+        with:
+            egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          check-latest: true
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.x'
+          check-latest: true
+          # Must be disabled when no `go.sum`
+          # cache: true
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          check-latest: true
+          cache: 'npm'
+      - run: npm ci --production=false
+      - name: MkDocs cache
+        uses: actions/cache@v3
+        with:
+          key: ${{ github.ref }}
+          path: .cache
+      - run: python3 setup.py
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NODE_ENV: production
+            ENABLED_GIT_REVISION_DATE: true
+            SITE_URL: https://demosjarco.github.io/recipes/
+            RO_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
+            ES_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=es&hl=es&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
