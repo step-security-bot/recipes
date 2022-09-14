@@ -25,7 +25,9 @@ class Docs:
 		else:
 			if (os.getenv('CF_PAGES') != None and int(os.getenv('CF_PAGES')) == 1):
 				# Install node packages since CF only installs python packages by default
-				subprocess.run(["npm", "ci", "--production=false"], capture_output=True, check=True, text=True)
+				npmCiAttempt = subprocess.run(["npm", "ci", "--production=false"], capture_output=True, check=True, text=True)
+				print(npmCiAttempt.stdout, flush=True)
+				print(npmCiAttempt.stderr, flush=True)
 				return CiSystem.CLOUDFLARE
 			elif (os.getenv('GITHUB_ACTIONS') != None and bool(os.getenv('GITHUB_ACTIONS')) == True):
 				return CiSystem.GITHUB
