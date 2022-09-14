@@ -12,7 +12,7 @@ class PreSetupCF:
 		# aptInstallAttempt = subprocess.run(commands, capture_output=True, check=True, text=True)
 		# print(aptInstallAttempt.stdout, flush=True)
 		# print(aptInstallAttempt.stderr, flush=True)
-		testCommand = f'{self.isSudo == True and "" or "sudo"} apt install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev'
+		testCommand = f'apt install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev'
 		print('RUNNING:', testCommand)
 		os.system(testCommand)
 
