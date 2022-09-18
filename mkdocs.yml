@@ -121,7 +121,6 @@ plugins:
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, false]
   - exclude:
       glob:
-        - "*.py"
         - "*.cook"
         - "*.gotmpl"
         - "*.less"
