@@ -124,6 +124,7 @@ plugins:
         - "*.py"
         - "*.cook"
         - "*.gotmpl"
+        - "*.less"
   - glightbox
   - google-translate
   - social
