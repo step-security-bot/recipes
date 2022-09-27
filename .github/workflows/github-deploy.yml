@@ -54,8 +54,7 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: setup.py
-        shell: python
+      - run: python3 setup.py
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             NODE_ENV: production
