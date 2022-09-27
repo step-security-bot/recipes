@@ -57,7 +57,8 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: python3 setup.py
+      - run: setup.py
+        shell: python
         env:
           CI_SYSTEM_OVERRIDE: 0
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
