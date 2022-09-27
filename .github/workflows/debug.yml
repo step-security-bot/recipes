@@ -57,7 +57,7 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: setup.py
+      - run: ./setup.py
         shell: python
         env:
           CI_SYSTEM_OVERRIDE: 0
