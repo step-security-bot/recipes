@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        py: ['3.7', '3.8', '3.9', '3.10', '3.11.0-alpha - 3.11.0']
+        py: ['3.7', '3.8', '3.9', '3.10', '3.11.0-alpha - 3.11.x']
         go: ['1.18', '1.19']
         node: ['lts/*', 'latest']
     steps:
