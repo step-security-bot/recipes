@@ -1,4 +1,5 @@
 name: Generate Docs
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 on:
   push:
@@ -9,7 +10,6 @@ on:
       - ".vscode/**"
       - "_headers"
   workflow_dispatch:
-concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
   contents: read
@@ -17,6 +17,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     permissions:
       contents: write
       pages: write
@@ -27,10 +28,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Install MkDocs dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
@@ -43,22 +40,15 @@ jobs:
           check-latest: true
           # Must be disabled when no `go.sum`
           # cache: true
-      - uses: actions/setup-node@v3
-        with:
-          node-version: lts/*
-          check-latest: true
-          cache: 'npm'
-      - run: npm ci --production=false
       - name: MkDocs cache
         uses: actions/cache@v3
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: python3 setup.py
+      - run: mkdocs gh-deploy --force
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            NODE_ENV: production
-            ENABLED_GIT_REVISION_DATE: true
+            ENABLED_SOCIAL: true
             SITE_URL: https://demosjarco.github.io/recipes/
             RO_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
             ES_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=es&hl=es&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%

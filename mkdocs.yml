@@ -100,6 +100,15 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+hooks:
+  - hooks/preSetup.py
+  # - hooks/debug.py
+  - hooks/configEdit.py
+  - hooks/cookLang.py
+  - hooks/cookDocs.py
+  - hooks/cookDocsImages.py
+  - hooks/lessCompiler.py
+  - hooks/postSetup.py
 plugins:
   - search
   - tags
@@ -118,14 +127,17 @@ plugins:
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
-      enabled: !ENV [ENABLED_GIT_REVISION_DATE, false]
+      exclude:
+        - index.md
   - exclude:
       glob:
+        - "icon.jpg"
         - "*.cook"
         - "*.gotmpl"
         - "*.less"
   - glightbox
   - google-translate
-  - social
+  - social:
+      cards: !ENV [ENABLED_SOCIAL, false]
   # - privacy:
   #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
