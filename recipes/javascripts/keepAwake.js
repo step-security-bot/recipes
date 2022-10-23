@@ -1,8 +1,10 @@
 "use strict";
+
 // https://www.educative.io/answers/how-to-keep-your-screen-awake-using-javascript
 class KeepAwake {
 	#checkboxSelector;
 	#screenLock = null;
+
 	constructor() {
 		// Check feature availability
 		if ("wakeLock" in navigator) {
