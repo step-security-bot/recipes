@@ -2,7 +2,7 @@
 
 // https://www.educative.io/answers/how-to-keep-your-screen-awake-using-javascript
 class KeepAwake {
-	#checkboxSelector;
+	#checkboxSelector = "header nav form.md-header__option input#keepAwake";
 	#screenLock = null;
 
 	constructor() {
@@ -19,7 +19,6 @@ class KeepAwake {
 				<input id="keepAwake" type="checkbox" />
 				<label for="keepAwake">Keep Awake</label>
 			</form>`).insertBefore($("header nav .md-header__option").first());
-			this.#checkboxSelector = "header nav form.md-header__option input#keepAwake";
 			// Browsers release wake lock on loss of visibility, low battery, etc
 			// if screen lock was previously on, set it again
 			$(document).on("visibilitychange", () => {
