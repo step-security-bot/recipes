@@ -44,7 +44,7 @@ jobs:
           default: true
           override: true
       - name: Install oxipng
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@v1.0.1
         with:
           command: install
           args: oxipng
