@@ -12,4 +12,4 @@ pymdown-extensions==9.7
 toc==0.0.11
 mkdocs-exclude==1.0.2
 mkdocs-glightbox==0.3.0
-mkdocs-google-translate==1.1.0
+mkdocs-google-translate==1.1.2
