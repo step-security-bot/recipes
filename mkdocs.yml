@@ -142,3 +142,4 @@ plugins:
       cards: !ENV [ENABLED_SOCIAL, false]
   # - privacy:
   #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
+  # - meta
