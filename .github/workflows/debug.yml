@@ -44,7 +44,7 @@ jobs:
           # cache: true
       - name: MkDocs cache
         if: ${{ inputs.useMkDocsCache }}
-        uses: actions/cache@v3.2.0
+        uses: actions/cache@v3.2.1
         with:
           key: ${{ github.ref }}
           path: .cache
