@@ -41,7 +41,7 @@ jobs:
           # Must be disabled when no `go.sum`
           # cache: true
       - name: MkDocs cache
-        uses: actions/cache@v3.2.1
+        uses: actions/cache@v3.2.2
         with:
           key: ${{ github.ref }}
           path: .cache
