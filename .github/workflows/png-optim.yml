@@ -48,7 +48,7 @@ jobs:
         with:
           command: install
           args: oxipng
-      - uses: SimenB/github-actions-cpu-cores@v1.0.2
+      - uses: SimenB/github-actions-cpu-cores@v1.1.0
         id: cpu-cores
       - name: Optimize PNGs
         run: oxipng -o max -r --strip safe -i 1 -t ${{ steps.cpu-cores.outputs.count }} ${{ github.workspace }}/recipes
