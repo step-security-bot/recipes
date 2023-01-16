@@ -22,7 +22,7 @@ jobs:
         # cook docs still build for 1.18 (https://github.com/nicholaswilde/cook-docs/blob/main/go.mod#L3), test all through latest version 
         go: ['1.18', 'stable']
     steps:
-      - uses: step-security/harden-runner@v2.0.0
+      - uses: step-security/harden-runner@v2.1.0
         with:
             egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
       - uses: actions/checkout@v3.3.0
