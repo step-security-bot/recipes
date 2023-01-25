@@ -22,26 +22,26 @@ jobs:
       contents: write
       pages: write
     steps:
-      - uses: step-security/harden-runner@v2.1.0
+      - uses: step-security/harden-runner@v2
         with:
             egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v4.5.0
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
           check-latest: true
           cache: 'pip'
       - run: pip install -r requirements.txt
-      - uses: actions/setup-go@v3.5.0
+      - uses: actions/setup-go@v3
         with:
           go-version: 'stable'
           check-latest: true
           # Must be disabled when no `go.sum`
           # cache: true
       - name: MkDocs cache
-        uses: actions/cache@v3.2.3
+        uses: actions/cache@v3
         with:
           key: ${{ github.ref }}
           path: .cache

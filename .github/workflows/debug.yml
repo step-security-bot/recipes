@@ -22,20 +22,20 @@ jobs:
         # cook docs still build for 1.18 (https://github.com/nicholaswilde/cook-docs/blob/main/go.mod#L3), test all through latest version 
         go: ['1.18', 'stable']
     steps:
-      - uses: step-security/harden-runner@v2.1.0
+      - uses: step-security/harden-runner@v2
         with:
             egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v4.5.0
+      - uses: actions/setup-python@v4
         id: sp
         with:
           python-version: ${{ matrix.py }}
           check-latest: true
           cache: 'pip'
       - run: pip install -r requirements.txt
-      - uses: actions/setup-go@v3.5.0
+      - uses: actions/setup-go@v3
         id: sg
         with:
           go-version: ${{ matrix.go }}
@@ -44,7 +44,7 @@ jobs:
           # cache: true
       - name: MkDocs cache
         if: ${{ inputs.useMkDocsCache }}
-        uses: actions/cache@v3.2.3
+        uses: actions/cache@v3
         with:
           key: ${{ github.ref }}
           path: .cache
@@ -57,12 +57,12 @@ jobs:
           RO_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
           ES_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=es&hl=es&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
       - run: find . -type f -exec sha256sum {} \; > 'py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256'
-      - uses: actions/upload-artifact@v3.1.2
+      - uses: actions/upload-artifact@v3
         with:
           name: py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256
           path: '${{ github.workspace }}/py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256'
           if-no-files-found: error
-      - uses: actions/upload-artifact@v3.1.2
+      - uses: actions/upload-artifact@v3
         with:
           name: py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}
           path: ${{ github.workspace }}
