@@ -34,6 +34,7 @@ class YumInstall(PackageManager):
 class ZypperInstall(PackageManager):
 	def __init__(self) -> None:
 		super().__init__()
+		os.system('sudo zypper refresh')
 
 	def installPackages(self, *packages: str, assumeYes: bool = False) -> None:
 		super().installPackages(*packages, assumeYes=assumeYes)
