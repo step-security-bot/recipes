@@ -47,7 +47,9 @@ jobs:
       # https://doc.rust-lang.org/cargo/guide/continuous-integration.html#github-actions
       - run: ls -lA ~/.cargo/bin
       - name: Setup Rust
+      # rm to have rustup manage this tool
         run: |
+          rm -f ~/.cargo/bin/rustfmt ~/.cargo/bin/cargo-fmt
           rustup update stable && rustup default stable
       - run: cargo install oxipng
       - uses: SimenB/github-actions-cpu-cores@v1
