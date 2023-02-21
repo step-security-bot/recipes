@@ -44,8 +44,9 @@ jobs:
       #       ~/.cargo/git/db/
       #       target/
       #     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      # https://doc.rust-lang.org/cargo/guide/continuous-integration.html#github-actions
       - run: rustup update stable && rustup default stable
-      - run: tree .rustup
+      - run: tree
       - run: cargo install oxipng
       - uses: SimenB/github-actions-cpu-cores@v1
         id: cpu-cores
