@@ -43,17 +43,12 @@ jobs:
       #       ~/.cargo/git/db/
       #       target/
       #     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-      - uses: actions-rs/toolchain@v1
-        id: sr
-        with:
-          toolchain: stable
-          default: true
-          override: true
       - name: Install oxipng
         uses: actions-rs/cargo@v1
         with:
           command: install
           args: oxipng
+      - run: rustup update stable && rustup default stable
       - uses: SimenB/github-actions-cpu-cores@v1
         id: cpu-cores
       - name: Optimize PNGs
