@@ -45,7 +45,6 @@ jobs:
       #       target/
       #     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       # https://doc.rust-lang.org/cargo/guide/continuous-integration.html#github-actions
-      - run: ls -lA ~/.cargo/bin
       - name: Rust pre-setup
         # To have rustup manage this tool
         run: rm -f ~/.cargo/bin/rustfmt ~/.cargo/bin/cargo-fmt
