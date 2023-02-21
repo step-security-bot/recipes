@@ -7,6 +7,10 @@ on:
       - "**.png"
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   optimize:
     runs-on: ubuntu-latest
