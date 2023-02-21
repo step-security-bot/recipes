@@ -30,7 +30,6 @@ jobs:
       #       ~/.rustup/toolchains/stable-*
       #       ~/.rustup/update-hashes/stable-*
       #     key: rs-toolchain_${{ hashFiles('~/.rustup/update-hashes/stable*') }}
-      - run: tree .rustup
 
       # https://github.com/actions/cache/blob/main/examples.md#rust---cargo
       # https://github.com/rust-lang/cargo/issues/4725
@@ -46,6 +45,7 @@ jobs:
       #       target/
       #     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - run: rustup update stable && rustup default stable
+      - run: tree .rustup
       - run: cargo install oxipng
       - uses: SimenB/github-actions-cpu-cores@v1
         id: cpu-cores
