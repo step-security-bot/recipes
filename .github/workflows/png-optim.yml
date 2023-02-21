@@ -3,6 +3,7 @@ name: Optimize PNGs
 on:
   push:
     paths:
+      - ".github/workflows/png-optim.yml"
       - "**.png"
   workflow_dispatch:
 
