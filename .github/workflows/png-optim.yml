@@ -34,20 +34,17 @@ jobs:
       # https://github.com/actions/cache/blob/main/examples.md#rust---cargo
       # https://github.com/rust-lang/cargo/issues/4725
       # https://doc.rust-lang.org/cargo/reference/environment-variables.html
-      # - name: Rust Package Cache
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: |
-      #       ~/.cargo/bin/
-      #       ~/.cargo/registry/index/
-      #       ~/.cargo/registry/cache/
-      #       ~/.cargo/git/db/
-      #       target/
-      #     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Rust Package Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       # https://doc.rust-lang.org/cargo/guide/continuous-integration.html#github-actions
-      - name: Rust pre-setup
-        # To have rustup manage this tool
-        run: rm -f ~/.cargo/bin/rustfmt ~/.cargo/bin/cargo-fmt
       - run: rustup update stable && rustup default stable
       - run: cargo install oxipng
       - uses: SimenB/github-actions-cpu-cores@v1
