@@ -9,7 +9,6 @@ on:
       - ".github/**"
       - ".vscode/**"
       - "_headers"
-  workflow_dispatch:
 
 permissions:
   contents: read
