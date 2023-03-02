@@ -90,5 +90,6 @@ jobs:
       - run: npx lhci collect --settings.formFactor ${{ matrix.formFactor }} --settings.screenEmulation.width ${{ matrix.width }} --settings.screenEmulation.height ${{ matrix.height }} --settings.screenEmulation.deviceScaleFactor ${{ matrix.deviceScaleFactor }} --settings.screenEmulation.mobile ${{ matrix.mobile }}
       - run: npx lhci assert
       - run: npx lhci upload --githubStatusContextSuffix /${{ matrix.formFactor }}
+        if: ${{ always() }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
