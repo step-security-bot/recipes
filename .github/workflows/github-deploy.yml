@@ -52,3 +52,38 @@ jobs:
           SITE_URL: https://demosjarco.github.io/recipes/
           RO_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
           ES_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=es&hl=es&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
+      - uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: ${{ github.workspace }}/site/
+          if-no-files-found: error
+  lhci:
+    name: Lighthouse
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: step-security/harden-runner@v2
+        with:
+          disable-sudo: true
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          check-latest: true
+      # Setup lhci
+      - run: npm install -D @lhci/cli@latest
+      # Run mobile
+      # Using iPhone 14 size https://blisk.io/devices/details/iphone-14
+      - run: npx lhci collect --settings.formFactor mobile --settings.screenEmulation.width 390 --settings.screenEmulation.height 844 --settings.screenEmulation.deviceScaleFactor 3
+      - run: npx lhci assert
+      - run: npx lhci upload --githubStatusContextSuffix /mobile
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      # Run desktop
+      - run: npx lhci collect --settings.formFactor desktop --settings.screenEmulation.width 1920 --settings.screenEmulation.height 1080 --settings.screenEmulation.mobile false
+      - run: npx lhci assert
+      - run: npx lhci upload --githubStatusContextSuffix /desktop
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

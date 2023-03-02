@@ -1,0 +1,31 @@
+ci:
+  collect:
+    # The build directory where your HTML files to run Lighthouse on are located
+    staticDistDir: ./site/
+    # feature: navigation.instant
+    isSinglePageApplication: true
+    maxAutodiscoverUrls: 0
+    # https://github.com/GoogleChrome/lighthouse/blob/main/types/lhr/settings.d.ts#L53
+    settings:
+      throttlingMethod: devtools
+
+  assert:
+    # choices: "lighthouse:all", "lighthouse:recommended", "lighthouse:no-pwa"
+    preset: lighthouse:no-pwa
+    assertions:
+      # Should never be an error
+      color-contrast: warn
+      meta-description: warn
+      robots-txt: warn
+      # Since no tags are created, there's a GH api call that will always fail - leaving as warn in case there are others
+      errors-in-console: warn
+      # Not testable local
+      csp-xss: off
+      # Not controllable
+      non-composited-animations: off
+      uses-rel-preconnect: off
+
+
+  upload:
+    # choices: "lhci", "temporary-public-storage", "filesystem"
+    target: temporary-public-storage
