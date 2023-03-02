@@ -60,7 +60,7 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         formFactor: [mobile, desktop]
         include:
