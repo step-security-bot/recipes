@@ -64,10 +64,10 @@ jobs:
       matrix:
         formFactor: [mobile, desktop]
         include:
-          # # Using iPhone 14 size https://blisk.io/devices/details/iphone-14
+          # # Using Galaxy S21 size https://blisk.io/devices/details/galaxy-s21
           - formFactor: mobile
-            width: 390
-            height: 844
+            width: 360
+            height: 800
             deviceScaleFactor: 3
             mobile: true
           - formFactor: desktop
