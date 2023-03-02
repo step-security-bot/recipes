@@ -8,3 +8,6 @@
   Cross-Origin-Resource-Policy: cross-origin
   Access-Control-Allow-Origin: https://translate.goog
   Vary: Origin
+
+https://:subdomain.:project.pages.dev/*
+  X-Robots-Tag: noindex
