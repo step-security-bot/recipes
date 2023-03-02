@@ -62,19 +62,19 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        settings-formFactor: [mobile, desktop]
+        formFactor: [mobile, desktop]
         include:
           # # Using iPhone 14 size https://blisk.io/devices/details/iphone-14
-          - settings-formFactor: mobile
-            settings-screenEmulation-width: 390
-            settings-screenEmulation-height: 844
-            settings-screenEmulation-deviceScaleFactor: 3
-            settings-screenEmulation-mobile: true
-          - settings-formFactor: desktop
-            settings-screenEmulation-width: 1920
-            settings-screenEmulation-height: 1080
-            settings-screenEmulation-deviceScaleFactor: 1
-            settings-screenEmulation-mobile: false
+          - formFactor: mobile
+            width: 390
+            height: 844
+            deviceScaleFactor: 3
+            mobile: true
+          - formFactor: desktop
+            width: 1920
+            height: 1080
+            deviceScaleFactor: 1
+            mobile: false
     steps:
       - uses: step-security/harden-runner@v2
         with:
@@ -87,8 +87,8 @@ jobs:
           node-version: lts/*
           check-latest: true
       - run: npm install -D @lhci/cli@latest
-      - run: npx lhci collect --settings.formFactor ${{ matrix.settings-formFactor }} --settings.screenEmulation.width ${{ matrix.screenEmulation-width }} --settings.screenEmulation.height ${{ matrix.screenEmulation-height }} --settings.screenEmulation.deviceScaleFactor ${{ matrix.screenEmulation-deviceScaleFactor }} --settings.screenEmulation.mobile ${{ matrix.screenEmulation-mobile }}
+      - run: npx lhci collect --settings.formFactor ${{ matrix.formFactor }} --settings.screenEmulation.width ${{ matrix.width }} --settings.screenEmulation.height ${{ matrix.height }} --settings.screenEmulation.deviceScaleFactor ${{ matrix.deviceScaleFactor }} --settings.screenEmulation.mobile ${{ matrix.mobile }}
       - run: npx lhci assert
-      - run: npx lhci upload --githubStatusContextSuffix /${{ matrix.settings-formFactor }}
+      - run: npx lhci upload --githubStatusContextSuffix /${{ matrix.formFactor }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
