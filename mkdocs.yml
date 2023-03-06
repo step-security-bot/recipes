@@ -94,7 +94,7 @@ extra_javascript:
 extra_css:
   - stylesheets/fullWidth.css
   - stylesheets/keepAwake.css
-  - stylesheets/theme.less
+  - stylesheets/theme.css
 markdown_extensions:
   - smarty
   - toc:
@@ -134,7 +134,7 @@ plugins:
       css_files:
         - stylesheets/fullWidth.css
         - stylesheets/keepAwake.css
-        - stylesheets/theme.less
+        - stylesheets/theme.css
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
