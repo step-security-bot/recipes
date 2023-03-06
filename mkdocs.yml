@@ -35,14 +35,22 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+    # Palette toggle for oled dark mode
+    - media: "(prefers-color-scheme: dark) and (dynamic-range: high)"
+      scheme: oled
+      primary: green
+      accent: red
+      toggle:
+        icon: material/lightbulb-night-outline
+        name: Switch to light mode
     # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
+    - media: "(prefers-color-scheme: dark) and (dynamic-range: standard)"
       scheme: darkgray
       primary: green
       accent: red
       toggle:
         icon: material/brightness-4
-        name: Switch to light mode
+        name: Switch to oled dark mode
   font:
     text: Roboto
     code: Red Hat Mono
