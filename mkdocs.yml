@@ -37,7 +37,7 @@ theme:
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+      scheme: darkgray
       primary: green
       accent: red
       toggle:
