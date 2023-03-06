@@ -4,7 +4,6 @@ ci:
     staticDistDir: ./site/
     # feature: navigation.instant
     isSinglePageApplication: true
-    maxAutodiscoverUrls: 0
     # https://github.com/GoogleChrome/lighthouse/blob/main/types/lhr/settings.d.ts#L53
     settings:
       throttlingMethod: devtools
