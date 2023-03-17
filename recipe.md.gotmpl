@@ -4,12 +4,6 @@
 ---
 {{- end -}}
 
-{{- define "cook.lazyImageSection" -}}
-{{ if .Info.ImageFileName }}
-![{{ .Info.RecipeName }}](../assets/images/{{ lower .Info.ImageFileName | replace " " "-" }}){ loading=lazy }
-{{ end }}
-{{ end }}
-
 {{ template "cook.headerSection" . }}
 
 {{ template "cook.lazyImageSection" . }}
