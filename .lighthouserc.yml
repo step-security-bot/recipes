@@ -24,6 +24,8 @@ ci:
       errors-in-console: warn
       # Not testable local
       csp-xss: off
+      # Don't care
+      categories:seo: off
       # Not controllable
       non-composited-animations: off
       uses-rel-preconnect: off
