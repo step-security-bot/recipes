@@ -96,6 +96,7 @@ extra:
 extra_javascript:
   - javascripts/keepAwake.js
 extra_css:
+  - stylesheets/admonitions.css
   - stylesheets/fullWidth.css
   - stylesheets/keepAwake.css
   - stylesheets/theme.css
@@ -141,6 +142,7 @@ plugins:
       js_files:
         - javascripts/keepAwake.js
       css_files:
+        - stylesheets/admonitions.css
         - stylesheets/fullWidth.css
         - stylesheets/keepAwake.css
         - stylesheets/theme.css
