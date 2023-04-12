@@ -7,7 +7,7 @@
 {{ define "cook.indentedIngredients" }}
 {{ range .Steps }}
 {{- range .Ingredients }}
-	- {{ if .Amount.Quantity }}{{ round .Amount.Quantity 2 }}{{ if .Amount.Unit }} {{ .Amount.Unit }}{{ end }}{{ else }}some{{ end }} {{ .Name }}
+	- [ ] {{ if .Amount.Quantity }}{{ round .Amount.Quantity 2 }}{{ if .Amount.Unit }} {{ .Amount.Unit }}{{ end }}{{ else }}some{{ end }} {{ .Name }}
 {{- end }}
 {{- end }}
 {{ end }}
@@ -15,7 +15,7 @@
 {{ define "cook.indentedCookware" }}
 {{ range .Steps }}
 {{- range .Cookware }}
-	- {{.Quantity}} {{.Name}}
+	- [ ] {{.Quantity}} {{.Name}}
 {{- end }}
 {{- end }}
 {{ end }}
