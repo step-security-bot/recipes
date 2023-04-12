@@ -12,6 +12,14 @@
 {{- end }}
 {{ end }}
 
+{{ define "cook.indentedCookware" }}
+{{ range .Steps }}
+{{- range .Cookware }}
+	- {{.Quantity}} {{.Name}}
+{{- end }}
+{{- end }}
+{{ end }}
+
 {{ template "cook.headerSection" . }}
 
 {{ template "cook.lazyImageSection" . }}
@@ -22,7 +30,7 @@
 	{{ template "cook.indentedIngredients" . }}
 
 === ":cooking: Cookware"
-	{{ template "cook.cookware" . }}
+	{{ template "cook.indentedCookware" . }}
 
 {{ template "cook.stepsWithAdmonishedCommentsSection" . }}
 
