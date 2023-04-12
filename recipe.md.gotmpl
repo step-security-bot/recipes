@@ -4,6 +4,15 @@
 ---
 {{- end -}}
 
+{{- define "metaTags" -}}
+```md
+tags:
+  - HTML5
+  - JavaScript
+  - CSS{{ range $key, $value := .Metadata }}\n- {{ $key }}: {{ $value }}{{ end }}
+```
+{{- end -}}
+
 {{ define "cook.indentedIngredients" }}
 {{ range .Steps }}
 {{- range .Ingredients }}
@@ -20,7 +29,7 @@
 {{- end }}
 {{ end }}
 
-{{ template "cook.metadataSection" . }}
+{{ template "metaTags" . }}
 
 {{ template "cook.headerSection" . }}
 
