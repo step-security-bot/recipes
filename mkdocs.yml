@@ -10,9 +10,6 @@ theme:
   logo: icon.png
   icon:
     repo: fontawesome/brands/github
-    admonition:
-      ingredients: fontawesome/solid/basket-shopping
-      cookware: fontawesome/solid/utensils
   # Enables highlighting of source code in code blocks using the highlight.js JavaScript library
   highlightjs: true
   # Lists the homepage in the sidebar menu. As MkDocs requires that the homepage be listed in the nav configuration option, this setting allows the homepage to be included or excluded from the sidebar. Note that the site name/logo always links to the homepage.
@@ -96,7 +93,6 @@ extra:
 extra_javascript:
   - javascripts/keepAwake.js
 extra_css:
-  - stylesheets/admonitions.css
   - stylesheets/fullWidth.css
   - stylesheets/keepAwake.css
   - stylesheets/theme.css
@@ -142,7 +138,6 @@ plugins:
       js_files:
         - javascripts/keepAwake.js
       css_files:
-        - stylesheets/admonitions.css
         - stylesheets/fullWidth.css
         - stylesheets/keepAwake.css
         - stylesheets/theme.css
