@@ -10,9 +10,11 @@
 
 {{ template "cook.tableSection" . }}
 
-{{ template "cook.ingredientsSection" . }}
+=== "{{ template "cook.ingredientsHeader" . }}"
+    {{ template "cook.ingredients" . }}
 
-{{ template "cook.cookwareSection" . }}
+=== "{{ template "cook.cookwareHeader" . }}"
+	{{ template "cook.cookware" . }}
 
 {{ template "cook.stepsWithAdmonishedCommentsSection" . }}
 

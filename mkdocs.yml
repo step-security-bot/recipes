@@ -61,6 +61,7 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
+    - content.tabs.link
   custom_dir: overrides
 extra:
   alternate:
@@ -109,6 +110,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
 hooks:
   - hooks/preSetup.py
   # - hooks/debug.py
