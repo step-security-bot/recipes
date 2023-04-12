@@ -8,13 +8,13 @@
 	// border-color: rgb(43, 155, 70);
 }
 
-.md-typeset .ingredients>.admonition-title,
-.md-typeset .ingredients>summary {
+.md-typeset .ingredients > .admonition-title,
+.md-typeset .ingredients > summary {
 	// background-color: rgba(43, 155, 70, 0.1);
 }
 
-.md-typeset .ingredients>.admonition-title::before,
-.md-typeset .ingredients>summary::before {
+.md-typeset .ingredients > .admonition-title::before,
+.md-typeset .ingredients > summary::before {
 	// background-color: rgb(43, 155, 70);
 	-webkit-mask-image: var(--md-admonition-icon--ingredients);
 	mask-image: var(--md-admonition-icon--ingredients);
@@ -25,13 +25,13 @@
 	border-color: rgb(43, 155, 70);
 }
 
-.md-typeset .cookware>.admonition-title,
-.md-typeset .cookware>summary {
+.md-typeset .cookware > .admonition-title,
+.md-typeset .cookware > summary {
 	background-color: rgba(43, 155, 70, 0.1);
 }
 
-.md-typeset .cookware>.admonition-title::before,
-.md-typeset .cookware>summary::before {
+.md-typeset .cookware > .admonition-title::before,
+.md-typeset .cookware > summary::before {
 	background-color: rgb(43, 155, 70);
 	-webkit-mask-image: var(--md-admonition-icon--cookware);
 	mask-image: var(--md-admonition-icon--cookware);

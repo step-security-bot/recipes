@@ -61,33 +61,30 @@
 	--md-footer-bg-color--dark: hsla(var(--md-hue), 15%, 10%, 1);
 
 	// Shadow depth 1
-	--md-shadow-z1: 0 0.2 0.5 hsla(0, 0%, 0%, 0.2),
-	0 0 0.05 hsla(0, 0%, 0%, 0.1);
+	--md-shadow-z1: 0 0.2 0.5 hsla(0, 0%, 0%, 0.2), 0 0 0.05 hsla(0, 0%, 0%, 0.1);
 
 	// Shadow depth 2
-	--md-shadow-z2: 0 0.2 0.5 hsla(0, 0%, 0%, 0.3),
-	0 0 0.05 hsla(0, 0%, 0%, 0.25);
+	--md-shadow-z2: 0 0.2 0.5 hsla(0, 0%, 0%, 0.3), 0 0 0.05 hsla(0, 0%, 0%, 0.25);
 
 	// Shadow depth 3
-	--md-shadow-z3: 0 0.2 0.5 hsla(0, 0%, 0%, 0.4),
-	0 0 0.05 hsla(0, 0%, 0%, 0.35);
+	--md-shadow-z3: 0 0.2 0.5 hsla(0, 0%, 0%, 0.4), 0 0 0.05 hsla(0, 0%, 0%, 0.35);
 
 	// Hide images for light mode
-	img[src$="#only-light"],
-	img[src$="#gh-light-mode-only"] {
+	img[src$='#only-light'],
+	img[src$='#gh-light-mode-only'] {
 		display: none;
 	}
 
 	// Show images for dark mode
-	img[src$="#only-dark"],
-	img[src$="#gh-dark-mode-only"] {
+	img[src$='#only-dark'],
+	img[src$='#gh-dark-mode-only'] {
 		display: initial;
 	}
 }
 
 // Only use dark mode on screens
 @media screen {
-	[data-md-color-scheme="darkgray"] {
+	[data-md-color-scheme='darkgray'] {
 		.baseSlate();
 
 		--md-default-bg-color: hsla(var(--md-hue), 0%, 13%, 1);
@@ -96,7 +93,7 @@
 		--md-default-bg-color--lightest: hsla(var(--md-hue), 0%, 13%, 0.07);
 	}
 
-	[data-md-color-scheme="oled"] {
+	[data-md-color-scheme='oled'] {
 		.baseSlate();
 
 		--md-default-bg-color: hsla(var(--md-hue), 0%, 0%, 1);
