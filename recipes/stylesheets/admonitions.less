@@ -1,0 +1,20 @@
+:root {
+	--md-admonition-icon--ingredients: url(https: //cdn.jsdelivr.net/gh/jdecked/twemoji/assets/svg/1f9c2.svg)
+}
+
+.md-typeset .admonition.ingredients,
+.md-typeset details.ingredients {
+	// border-color: rgb(43, 155, 70);
+}
+
+.md-typeset .ingredients>.admonition-title,
+.md-typeset .ingredients>summary {
+	// background-color: rgba(43, 155, 70, 0.1);
+}
+
+.md-typeset .ingredients>.admonition-title::before,
+.md-typeset .ingredients>summary::before {
+	// background-color: rgb(43, 155, 70);
+	-webkit-mask-image: var(--md-admonition-icon--ingredients);
+	mask-image: var(--md-admonition-icon--ingredients);
+}
