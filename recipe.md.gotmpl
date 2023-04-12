@@ -5,10 +5,10 @@
 {{- end -}}
 
 {{- define "metaTags" -}}
-```md
+---
 tags:{{ range $key, $value := .Metadata }}
   - {{ $key }}: {{ $value }}{{ end }}
-```
+---
 {{- end -}}
 
 {{ define "cook.indentedIngredients" }}
