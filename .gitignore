@@ -165,6 +165,7 @@ cython_debug/
 
 # Compiled less files
 recipes/stylesheets/**.css
+!recipes/stylesheets/admonitions.css
 
 # Temp downloaded files
 CookCLI_*.*.*_linux_amd64.zip
