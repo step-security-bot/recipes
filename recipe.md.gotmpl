@@ -6,10 +6,8 @@
 
 {{- define "metaTags" -}}
 ```md
-tags:
-  - HTML5
-  - JavaScript
-  - CSS{{ range $key, $value := .Metadata }}\n- {{ $key }}: {{ $value }}{{ end }}
+tags:{{ range $key, $value := .Metadata }}
+  - {{ $key }}: {{ $value }}{{ end }}
 ```
 {{- end -}}
 
