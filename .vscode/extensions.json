@@ -1,5 +1,6 @@
 {
 	"recommendations": [
-		"dubadub.cook"
+		"dubadub.cook",
+		"redhat.vscode-yaml"
 	]
 }
