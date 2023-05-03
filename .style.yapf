@@ -96,7 +96,7 @@ column_limit=79
 continuation_align_style=SPACE
 
 # Indent width used for line continuations.
-continuation_indent_width=4
+continuation_indent_width=1
 
 # Put closing brackets on a separate line, dedented, if the bracketed
 # expression can't fit in a single line. Applies to all kinds of brackets,
@@ -174,7 +174,7 @@ indent_closing_brackets=False
 indent_dictionary_value=False
 
 # The number of columns to use for indentation.
-indent_width=4
+indent_width=1
 
 # Join short lines into one line. E.g., single line 'if' statements.
 join_multiple_lines=True
@@ -400,4 +400,4 @@ split_penalty_import_names=0
 split_penalty_logical_operator=300
 
 # Use the Tab character for indentation.
-use_tabs=False
+use_tabs=True
