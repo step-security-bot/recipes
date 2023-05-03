@@ -2,7 +2,7 @@ from sys import platform
 from distro import id as distroId
 # Must import full os or WEXITSTATUS crashes other systems
 import os
-from subprocess import SubprocessError, DEVNULL, CalledProcessError, run
+from subprocess import check_output, DEVNULL, CalledProcessError, run
 
 class GitClone:
 	def __init__(self) -> None:
@@ -20,7 +20,7 @@ class GitClone:
 			return True
 
 		try:
-			git_config = SubprocessError.check_output(["git", "config", "--get", "remote.origin.fetch"], stderr=DEVNULL).decode("utf-8")
+			git_config = check_output(["git", "config", "--get", "remote.origin.fetch"], stderr=DEVNULL).decode("utf-8")
 			if "--depth=" in git_config:
 				return True
 		except CalledProcessError:
