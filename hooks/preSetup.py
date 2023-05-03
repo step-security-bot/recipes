@@ -2,6 +2,36 @@ from sys import platform
 from distro import id as distroId
 # Must import full os or WEXITSTATUS crashes other systems
 import os
+from subprocess import SubprocessError, DEVNULL, CalledProcessError, run
+
+class GitClone:
+	def __init__(self) -> None:
+		if self.is_shallow_clone():
+			print("Is Shallow")
+			self.unshallow()
+		else:
+			print("Not shallow")
+
+	def is_shallow_clone(self) -> None:
+		git_dir = os.path.join(os.getcwd(), ".git")
+		shallow_file = os.path.join(git_dir, "shallow")
+
+		if os.path.isfile(shallow_file):
+			return True
+
+		try:
+			git_config = SubprocessError.check_output(["git", "config", "--get", "remote.origin.fetch"], stderr=DEVNULL).decode("utf-8")
+			if "--depth=" in git_config:
+				return True
+		except CalledProcessError:
+			pass
+
+		return False
+
+	def unshallow(self) -> None:
+		unshallowAttempt = run(["git", "fetch", "--unshallow"], capture_output=True, check=True, text=True)
+		print(unshallowAttempt.stdout, flush=True)
+		print(unshallowAttempt.stderr, flush=True)
 
 class PackageManager:
 	def __init__(self) -> None:
@@ -42,6 +72,9 @@ class ZypperInstall(PackageManager):
 		print("EXIT CODE:", zypperAttempt, os.WEXITSTATUS(zypperAttempt))
 
 def on_startup(command, dirty: bool):
+	# Unshallow clone
+	GitClone()
+
 	# MkDocs social requirement
 	if (os.getenv('ENABLED_SOCIAL') != None and bool(os.getenv('ENABLED_SOCIAL'))):
 		if platform == "linux":
