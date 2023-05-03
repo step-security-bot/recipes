@@ -7,7 +7,7 @@ class PackageManager:
 	def __init__(self) -> None:
 		pass
 
-	def installPackages(self, *packages:str, assumeYes:bool = False) -> None:
+	def installPackages(self, *packages: str, assumeYes: bool = False) -> None:
 		pass
 
 class AptInstall(PackageManager):
@@ -15,7 +15,7 @@ class AptInstall(PackageManager):
 		super().__init__()
 		os.system('sudo apt update')
 
-	def installPackages(self, *packages:str, assumeYes:bool = False) -> None:
+	def installPackages(self, *packages: str, assumeYes: bool = False) -> None:
 		super().installPackages(packages, assumeYes=assumeYes)
 		aptAttempt = os.system(f'sudo apt install {assumeYes == True and "-y" or ""} {" ".join(packages)}')
 		if os.WEXITSTATUS(aptAttempt) >= 100:
@@ -41,13 +41,23 @@ class ZypperInstall(PackageManager):
 		zypperAttempt = os.system(f'sudo zypper install  {assumeYes == True and "-y" or ""} {" ".join(packages)}')
 		print("EXIT CODE:", zypperAttempt, os.WEXITSTATUS(zypperAttempt))
 
-def on_startup(command, dirty:bool):
+def on_startup(command, dirty: bool):
 	# MkDocs social requirement
 	if (os.getenv('ENABLED_SOCIAL') != None and bool(os.getenv('ENABLED_SOCIAL'))):
 		if platform == "linux":
 			if distroId() == "ubuntu" or distroId() == "debian":
 				AptInstall().installPackages('libcairo2-dev', 'libfreetype6-dev', 'libffi-dev', 'libjpeg-dev', 'libpng-dev', 'libz-dev', assumeYes=True)
 			elif distroId() == "fedora":
-				YumInstall().installPackages('cairo-devel' 'freetype-devel' 'libffi-devel' 'libjpeg-devel' 'libpng-devel' 'zlib-devel', assumeYes=True)
+				YumInstall().installPackages('cairo-devel'
+				                             'freetype-devel'
+				                             'libffi-devel'
+				                             'libjpeg-devel'
+				                             'libpng-devel'
+				                             'zlib-devel', assumeYes=True)
 			elif distroId() == "opensuse":
-				ZypperInstall().installPackages('cairo-devel' 'freetype-devel' 'libffi-devel' 'libjpeg-devel' 'libpng-devel' 'zlib-devel', assumeYes=True)
+				ZypperInstall().installPackages('cairo-devel'
+				                                'freetype-devel'
+				                                'libffi-devel'
+				                                'libjpeg-devel'
+				                                'libpng-devel'
+				                                'zlib-devel', assumeYes=True)
