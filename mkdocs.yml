@@ -144,11 +144,6 @@ plugins:
         - stylesheets/fullWidth.css
         - stylesheets/keepAwake.css
         - stylesheets/theme.css
-  - git-revision-date-localized:
-      type: timeago
-      enable_creation_date: true
-      exclude:
-        - index.md
   - exclude:
       glob:
         - "icon.jpg"
