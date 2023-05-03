@@ -48,16 +48,6 @@ def on_startup(command, dirty: bool):
 			if distroId() == "ubuntu" or distroId() == "debian":
 				AptInstall().installPackages('libcairo2-dev', 'libfreetype6-dev', 'libffi-dev', 'libjpeg-dev', 'libpng-dev', 'libz-dev', assumeYes=True)
 			elif distroId() == "fedora":
-				YumInstall().installPackages('cairo-devel'
-				                             'freetype-devel'
-				                             'libffi-devel'
-				                             'libjpeg-devel'
-				                             'libpng-devel'
-				                             'zlib-devel', assumeYes=True)
+				YumInstall().installPackages('cairo-devel', 'freetype-devel', 'libffi-devel', 'libjpeg-devel', 'libpng-devel', 'zlib-devel', assumeYes=True)
 			elif distroId() == "opensuse":
-				ZypperInstall().installPackages('cairo-devel'
-				                                'freetype-devel'
-				                                'libffi-devel'
-				                                'libjpeg-devel'
-				                                'libpng-devel'
-				                                'zlib-devel', assumeYes=True)
+				ZypperInstall().installPackages('cairo-devel', 'freetype-devel', 'libffi-devel', 'libjpeg-devel', 'libpng-devel', 'zlib-devel', assumeYes=True)
