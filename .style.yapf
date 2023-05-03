@@ -42,7 +42,7 @@ arithmetic_precedence_indication=False
 
 # Number of blank lines surrounding top-level function and class
 # definitions.
-blank_lines_around_top_level_definition=2
+blank_lines_around_top_level_definition=1
 
 # Number of blank lines between top-level imports and variable
 # definitions.
@@ -61,7 +61,7 @@ blank_line_before_module_docstring=False
 #                      # <------ this blank line
 #     def method():
 #       ...
-blank_line_before_nested_class_or_def=True
+blank_line_before_nested_class_or_def=False
 
 # Do not split consecutive brackets. Only relevant when
 # dedent_closing_brackets is set. For example:
@@ -82,7 +82,7 @@ blank_line_before_nested_class_or_def=True
 coalesce_brackets=False
 
 # The column limit.
-column_limit=79
+column_limit=9007199254740991
 
 # The style for continuation alignment. Possible values are:
 #
@@ -199,7 +199,7 @@ spaces_around_default_or_named_assign=False
 # will be formatted as:
 #
 #   { 1: 2 }
-spaces_around_dict_delimiters=False
+spaces_around_dict_delimiters=True
 
 # Adds a space after the opening '[' and before the ending ']' list
 # delimiters.
@@ -209,7 +209,7 @@ spaces_around_dict_delimiters=False
 # will be formatted as:
 #
 #   [ 1, 2 ]
-spaces_around_list_delimiters=False
+spaces_around_list_delimiters=True
 
 # Use spaces around the power operator.
 spaces_around_power_operator=False
