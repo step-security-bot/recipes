@@ -19,11 +19,11 @@ class CookLang:
 
 	def download(self, downloadUrl:ParseResult) -> None:
 		zipFileLocation = Path(Path(downloadUrl.path).name)
-		downloadAttempt = get(downloadUrl.geturl(), stream = True)
-		with open(zipFileLocation, "wb") as zipFile:
-			for chunk in downloadAttempt.iter_content(chunk_size=DEFAULT_BUFFER_SIZE):
-				if chunk:
-					zipFile.write(chunk)
+		with get(downloadUrl.geturl(), stream = True) as downloadAttempt:
+			with open(zipFileLocation, "wb") as zipFile:
+				for chunk in downloadAttempt.iter_content(chunk_size=DEFAULT_BUFFER_SIZE):
+					if chunk:
+						zipFile.write(chunk)
 		print(f"Downloaded {downloadUrl.geturl()} to {zipFileLocation.resolve().relative_to(Path.cwd())}")
 		self.unzip(zipFileLocation)
 
