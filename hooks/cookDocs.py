@@ -20,6 +20,10 @@ class CookDocs:
 
 		print(f"Using GOPATH: {gopath}", flush=True)
 
+		ls_attempt = run(f"ls -lia {gopath}", capture_output=True, shell=True, check=True, 	text=True)
+		print(ls_attempt.stdout, flush=True)
+		print(ls_attempt.stderr, flush=True)
+
 		cookDocsAttempt = run([f"{gopath}cook-docs"], capture_output=True, shell=True, check=True, 	text=True)
 		print(cookDocsAttempt.stdout, flush=True)
 		print(cookDocsAttempt.stderr, flush=True)
