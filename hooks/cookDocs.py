@@ -23,7 +23,7 @@ class CookDocs:
 		ls_attempt = run(f"ls -lia {ls1}", capture_output=True, shell=True, check=False, text=True)
 		print(ls_attempt.stdout, flush=True)
 		print(ls_attempt.stderr, flush=True)
-		print("After {ls1}")
+		print(f"After {ls1}")
 
 		print(f"Before {gopath}")
 		ls_attempt2 = run(f"ls -lia {gopath}", capture_output=True, shell=True, check=False, text=True)
