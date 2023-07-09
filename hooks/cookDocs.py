@@ -22,13 +22,13 @@ class CookDocs:
 		print(ls_attempt.stdout, flush=True)
 		print(ls_attempt.stderr, flush=True)
 
-		ls_attempt = run(f"ls -lia $GOPATH/bin", capture_output=True, shell=True, check=True, 	text=True)
-		print(ls_attempt.stdout, flush=True)
-		print(ls_attempt.stderr, flush=True)
+		ls_attempt2 = run(f"ls -lia $GOPATH/bin", capture_output=True, shell=True, check=True, 	text=True)
+		print(ls_attempt2.stdout, flush=True)
+		print(ls_attempt2.stderr, flush=True)
 
-		ls_attempt = run(f"ls -lia $HOME/go/bin", capture_output=True, shell=True, check=True, 	text=True)
-		print(ls_attempt.stdout, flush=True)
-		print(ls_attempt.stderr, flush=True)
+		ls_attempt3 = run(f"ls -lia $HOME/go/bin", capture_output=True, shell=True, check=True, 	text=True)
+		print(ls_attempt3.stdout, flush=True)
+		print(ls_attempt3.stderr, flush=True)
 
 		cookDocsAttempt = run([f"{gopath}cook-docs"], capture_output=True, shell=True, check=True, 	text=True)
 		print(cookDocsAttempt.stdout, flush=True)
