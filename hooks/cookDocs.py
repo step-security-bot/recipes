@@ -24,8 +24,8 @@ class CookDocs:
 		print(ls_attempt.stderr, flush=True)
 		print("After $GOBIN")
 
-		print("Before $GOPATH/bin")
-		ls_attempt2 = run(f"ls -lia $GOPATH/bin", capture_output=True, shell=True, check=False, 	text=True)
+		print(f"Before {gopath}")
+		ls_attempt2 = run(f"ls -lia {gopath}", capture_output=True, shell=True, check=False, 	text=True)
 		print(ls_attempt2.stdout, flush=True)
 		print(ls_attempt2.stderr, flush=True)
 		print("After $GOPATH/bin")
