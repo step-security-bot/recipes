@@ -18,7 +18,7 @@ class CookDocs:
 		elif (getenv('CF_PAGES') != None and int(getenv('CF_PAGES')) == 1):
 			gopath = '$GOPATH/bin/'
 
-		ls_attempt = run(f"ls -lia $GOBIN", capture_output=True, shell=True, check=True, 	text=True)
+		ls_attempt = run(f"ls -lia $GOBIN", capture_output=True, shell=True, check=True, text=True)
 		print(ls_attempt.stdout, flush=True)
 		print(ls_attempt.stderr, flush=True)
 
