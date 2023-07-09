@@ -26,26 +26,32 @@ class CookDocs:
 		print("After {ls1}")
 
 		print(f"Before {gopath}")
-		ls_attempt2 = run(f"ls -lia {gopath}", capture_output=True, shell=True, check=False, 	text=True)
+		ls_attempt2 = run(f"ls -lia {gopath}", capture_output=True, shell=True, check=False, text=True)
 		print(ls_attempt2.stdout, flush=True)
 		print(ls_attempt2.stderr, flush=True)
 		print(f"After {gopath}")
 
 		ls3 = '$HOME/go/bin'
 		print(f"Before {ls3}")
-		whereIs_attempt = run(f"ls -lia {ls3}", capture_output=True, shell=True, check=False, 	text=True)
+		whereIs_attempt = run(f"ls -lia {ls3}", capture_output=True, shell=True, check=False, text=True)
 		print(whereIs_attempt.stdout, flush=True)
 		print(whereIs_attempt.stderr, flush=True)
 		print(f"After {ls3}")
 
 		whereIs = 'cook-docs'
 		print(f"Before {whereIs}")
-		whereIs_attempt = run(f"whereis {whereIs}", capture_output=True, shell=True, check=False, 	text=True)
+		whereIs_attempt = run(f"whereis {whereIs}", capture_output=True, shell=True, check=False, text=True)
 		print(whereIs_attempt.stdout, flush=True)
 		print(whereIs_attempt.stderr, flush=True)
 		print(f"After {whereIs}")
 
-		cookDocsAttempt = run([f"{gopath}cook-docs"], capture_output=True, shell=True, check=True, 	text=True)
+		print(f"Before find {whereIs}")
+		whereIs_attempt = run(f"find / -iname {whereIs}", capture_output=True, shell=True, check=False, text=True)
+		print(whereIs_attempt.stdout, flush=True)
+		print(whereIs_attempt.stderr, flush=True)
+		print(f"After find {whereIs}")
+
+		cookDocsAttempt = run([f"{gopath}cook-docs"], capture_output=True, shell=True, check=True, text=True)
 		print(cookDocsAttempt.stdout, flush=True)
 		print(cookDocsAttempt.stderr, flush=True)
 
