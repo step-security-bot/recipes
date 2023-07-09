@@ -18,23 +18,32 @@ class CookDocs:
 		elif (getenv('CF_PAGES') != None and int(getenv('CF_PAGES')) == 1):
 			gopath = '$GOPATH/bin/'
 
-		print("Before $GOBIN")
-		ls_attempt = run(f"ls -lia $GOBIN", capture_output=True, shell=True, check=False, text=True)
+		ls1 = '$GOBIN'
+		print(f"Before {ls1}")
+		ls_attempt = run(f"ls -lia {ls1}", capture_output=True, shell=True, check=False, text=True)
 		print(ls_attempt.stdout, flush=True)
 		print(ls_attempt.stderr, flush=True)
-		print("After $GOBIN")
+		print("After {ls1}")
 
 		print(f"Before {gopath}")
 		ls_attempt2 = run(f"ls -lia {gopath}", capture_output=True, shell=True, check=False, 	text=True)
 		print(ls_attempt2.stdout, flush=True)
 		print(ls_attempt2.stderr, flush=True)
-		print("After $GOPATH/bin")
+		print(f"After {gopath}")
 
-		print("Before $HOME/go/bin")
-		ls_attempt3 = run(f"ls -lia $HOME/go/bin", capture_output=True, shell=True, check=False, 	text=True)
-		print(ls_attempt3.stdout, flush=True)
-		print(ls_attempt3.stderr, flush=True)
-		print("After $HOME/go/bin")
+		ls3 = '$HOME/go/bin'
+		print(f"Before {ls3}")
+		whereIs_attempt = run(f"ls -lia {ls3}", capture_output=True, shell=True, check=False, 	text=True)
+		print(whereIs_attempt.stdout, flush=True)
+		print(whereIs_attempt.stderr, flush=True)
+		print(f"After {ls3}")
+
+		whereIs = 'cook-docs'
+		print(f"Before {whereIs}")
+		whereIs_attempt = run(f"whereis {whereIs}", capture_output=True, shell=True, check=False, 	text=True)
+		print(whereIs_attempt.stdout, flush=True)
+		print(whereIs_attempt.stderr, flush=True)
+		print(f"After {whereIs}")
 
 		cookDocsAttempt = run([f"{gopath}cook-docs"], capture_output=True, shell=True, check=True, 	text=True)
 		print(cookDocsAttempt.stdout, flush=True)
