@@ -20,12 +20,9 @@ class CookDocs:
 
 		print(f"Using GOPATH: {gopath}", flush=True)
 
-		try:
-			cookDocsAttempt = run([f"{gopath}cook-docs"], capture_output=True, shell=True, check=True, text=True)
-			print(cookDocsAttempt.stdout, flush=True)
-			print(cookDocsAttempt.stderr, flush=True)
-		except Exception as e:
-			print(f"An error occurred while running the command: {e}", flush=True)
+		cookDocsAttempt = run([f"{gopath}cook-docs"], capture_output=True, shell=True, check=True, 	text=True)
+		print(cookDocsAttempt.stdout, flush=True)
+		print(cookDocsAttempt.stderr, flush=True)
 
 def on_config(config: Config) -> Config:
 	CookDocs()
