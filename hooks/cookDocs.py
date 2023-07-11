@@ -13,7 +13,7 @@ class CookDocs:
 		reshim_attempt = run("asdf reshim golang", capture_output=True, shell=True, check=False, text=True)
 		print(reshim_attempt.stdout, flush=True)
 		print(reshim_attempt.stderr, flush=True)
-	
+
 	def download(self) -> None:
 		goInstallAttempt = run(["go", "install", "github.com/nicholaswilde/cook-docs/cmd/cook-docs@latest"], capture_output=True, check=True, text=True)
 		print(goInstallAttempt.stdout, flush=True)
