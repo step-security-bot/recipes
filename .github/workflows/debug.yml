@@ -17,8 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Python 3.7 is latest supported on CF, test all versions from that to latest beta
-        py: ['3.7', '3.8', '3.9', '3.10', '3.11', '3.12.0-alpha - 3.12.x']
+        py: ['3.x', '3.12.0-alpha - 3.12.x']
         # cook docs still build for 1.18 (https://github.com/nicholaswilde/cook-docs/blob/main/go.mod#L3), test all through latest version 
         go: ['1.18', '1.19', '1.20', '1.21']
     steps:
