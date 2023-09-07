@@ -38,7 +38,7 @@ jobs:
       # https://doc.rust-lang.org/cargo/guide/continuous-integration.html#github-actions
       - run: rustup update stable && rustup default stable
       - run: cargo install oxipng
-      - uses: SimenB/github-actions-cpu-cores@v1
+      - uses: SimenB/github-actions-cpu-cores@v2
         id: cpu-cores
       - name: Optimize PNGs
         run: oxipng -o max -r --strip safe -i 1 -t ${{ steps.cpu-cores.outputs.count }} ${{ github.workspace }}/recipes
