@@ -37,10 +37,10 @@ jobs:
           dotnet-version: |
             5.0.x
             6.0.x
-      - uses: microsoft/security-devops-action@v1.6.0
+      - uses: microsoft/security-devops-action@19539f7e6ce5a7f39edd1a0cdb0ec9d92b74bcf2 # v1.7.2
         id: msdo
         env:
           GDN_RUN_AUTO: true
-      - uses: github/codeql-action/upload-sarif@v2
+      - uses: github/codeql-action/upload-sarif@00e563ead9f72a8461b24876bee2d0c2e8bd2ee8 # v2.21.5
         with:
           sarif_file: ${{ steps.msdo.outputs.sarifFile }}
