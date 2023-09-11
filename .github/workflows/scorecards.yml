@@ -21,6 +21,10 @@ jobs:
   analysis:
     name: Scorecard analysis
     runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name }}
+      # url: ${{ github.server_url }}/${{ github.repository }}/security/code-scanning?query=is%3Aopen+tool%3AScorecard
+      url: https://securityscorecards.dev/viewer/?uri=github.com/${{ github.repository }}
     permissions:
       # Needed to upload the results to code-scanning dashboard.
       security-events: write
