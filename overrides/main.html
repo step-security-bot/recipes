@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
-{% block extrahead %}
+{% block site_meta %}
+{{ super() }}
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#4cae4f" />
 <!-- <meta name="theme-color" content="#68bb6c" media="(prefers-color-scheme: light)"> -->
 <!-- <meta name="theme-color" content="#398e3d" media="(prefers-color-scheme: dark)"> -->
 {% endblock %}
 
-{% block header %}
-{{ super() }}
+{% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ super() }}
 {% endblock %}
 
 {% block content %}
