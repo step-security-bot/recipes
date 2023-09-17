@@ -6,6 +6,6 @@ def on_config(config: Config) -> Config:
 	pass
 
 def on_nav(nav: Navigation, config: Config, files: Files) -> Navigation | None:
-	nav.items.insert(0, Section(title="Main Site", children=[Link(title=None, url="https://demosjarco.dev")]))
+	nav.items.insert(0, Link(title="Main Site", url="https://demosjarco.dev"))
 
 	return nav
