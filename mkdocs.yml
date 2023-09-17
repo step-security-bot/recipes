@@ -102,11 +102,8 @@ extra_css:
   - stylesheets/keepAwake.css
   - stylesheets/theme.css
 markdown_extensions:
-  - smarty
   - toc:
       permalink: "#"
-      separator: "_"
-  - sane_lists
   - attr_list
   - admonition
   - pymdownx.details
