@@ -15,3 +15,16 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 999
+    groups:
+      mkdocs-core:
+        patterns:
+          - "mkdocs"
+          - "mkdocs-material"
+      social:
+        patterns:
+          - "CairoSVG"
+          - "Pillow"
+      hooks:
+        patterns:
+          - "lesscpy"
+          - "distro"
