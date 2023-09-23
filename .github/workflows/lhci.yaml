@@ -35,8 +35,8 @@ jobs:
           disable-sudo: true
           egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
-      - run: echo ${{ github.event.workflow }}
-      - run: echo ${{ github.event.workflow_run }}
+      - run: echo "${{ toJson(github.event.workflow) }}"
+      - run: echo "${{ toJson(github.event.workflow_run) }}"
       - uses: dawidd6/action-download-artifact@246dbf436b23d7c49e21a7ab8204ca9ecd1fe615 # v2.27.0
       - uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
