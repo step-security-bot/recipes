@@ -157,7 +157,5 @@ plugins:
         - stylesheets/fullWidth.css
         - stylesheets/keepAwake.css
         - stylesheets/theme.css
-  # - privacy:
-  #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
   # - meta
   - google-translate
