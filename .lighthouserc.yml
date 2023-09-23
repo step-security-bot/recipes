@@ -25,6 +25,8 @@ ci:
       # Not used on 404 page, but used on all the others
       unused-javascript: warn
       unused-css-rules: warn
+      # { loading=lazy } is used for all images in my control, but some aren't
+      offscreen-images: warn
       # navigation.instant turns into SPA which breaks back/forward cache
       bf-cache: off
       # Not testable local
