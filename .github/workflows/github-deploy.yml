@@ -15,7 +15,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment: ${{ github.base_ref || github.ref_name }}
     permissions:
       contents: write
       pages: write
