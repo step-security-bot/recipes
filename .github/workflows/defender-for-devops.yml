@@ -31,7 +31,7 @@ jobs:
     # currently only windows latest is supported
     runs-on: windows-latest
     environment:
-      name: ${{ github.ref_name }}
+      name: ${{ github.base_ref || github.ref_name }}
       url: ${{ github.server_url }}/${{ github.repository }}/security/code-scanning?query=is%3Aopen+tool%3Aantimalware
     permissions:
       actions: read

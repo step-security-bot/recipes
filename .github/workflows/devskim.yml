@@ -18,7 +18,7 @@ jobs:
     name: DevSkim
     runs-on: ubuntu-latest
     environment:
-      name: ${{ github.ref_name }}
+      name: ${{ github.base_ref || github.ref_name }}
       url: ${{ github.server_url }}/${{ github.repository }}/security/code-scanning?query=is%3Aopen+tool%3Adevskim
     permissions:
       actions: read
