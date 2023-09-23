@@ -63,6 +63,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.prune
+    - toc.follow
     - navigation.top
     - search.suggest
     - search.highlight
