@@ -1,6 +1,7 @@
 from sys import platform
 from typing import Literal
 from distro import id as distroId
+from subprocess import PIPE, run
 # Must import full os or WEXITSTATUS crashes other systems
 import os
 
