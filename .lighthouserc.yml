@@ -37,7 +37,3 @@ ci:
       crawlable-anchors: off
       form-field-multiple-labels: off
       label: off
-
-  upload:
-    # choices: "lhci", "temporary-public-storage", "filesystem"
-    target: temporary-public-storage
