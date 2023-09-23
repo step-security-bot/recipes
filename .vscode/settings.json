@@ -35,6 +35,7 @@
 		"editor.detectIndentation": false,
 		"editor.indentSize": 2,
 		"editor.insertSpaces": true,
+		"editor.defaultFormatter": "redhat.vscode-yaml"
 	},
 	"[python]": {
 		"editor.defaultFormatter": "eeyore.yapf"
