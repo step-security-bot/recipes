@@ -139,7 +139,10 @@ hooks:
   - hooks/postSetup.py
 plugins:
   - search
+  - social:
+      cards: !ENV [ENABLED_SOCIAL, false]
   - tags
+  - glightbox
   - minify:
       minify_html: true
       htmlmin_opts:
@@ -154,10 +157,7 @@ plugins:
         - stylesheets/fullWidth.css
         - stylesheets/keepAwake.css
         - stylesheets/theme.css
-  - glightbox
-  - google-translate
-  - social:
-      cards: !ENV [ENABLED_SOCIAL, false]
   # - privacy:
   #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
   # - meta
+  - google-translate
