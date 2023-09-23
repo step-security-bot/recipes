@@ -1,7 +1,7 @@
 {
 	"editor.formatOnSave": true,
 	"github-actions.workflows.pinned.workflows": [
-		".github/workflows/github-deploy.yml"
+		".github/workflows/github-deploy.yaml"
 	],
 	"github-actions.workflows.pinned.refresh.enabled": true,
 	"python.analysis.typeCheckingMode": "strict",
