@@ -24,6 +24,7 @@ ci:
       errors-in-console: warn
       # Not used on 404 page, but used on all the others
       unused-javascript: warn
+      unused-css-rules: warn
       # navigation.instant turns into SPA which breaks back/forward cache
       bf-cache: off
       # Not testable local
