@@ -31,5 +31,10 @@
 		"tag:yaml.org,2002:python/name:materialx.emoji.twemoji",
 		"tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
 	],
+	"[yaml]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+		"editor.detectIndentation": false
+	},
 	"python.formatting.provider": "yapf"
 }
