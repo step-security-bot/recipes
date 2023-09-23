@@ -1,4 +1,4 @@
-from mkdocs.config.base import Config
+from mkdocs.config.defaults import MkDocsConfig
 from pathlib import Path
 from io import StringIO
 import lesscpy
@@ -14,7 +14,7 @@ class LessCompiler:
 		print(f"Compiled {lessFilePath} to {cssFilePath}", flush=True)
 
 # Run `on_config` because it runs before `get_files`
-def on_config(config: Config) -> Config:
+def on_config(config: MkDocsConfig) -> MkDocsConfig | None:
 	for extraCssFilePath in config.extra_css:
 		cssFilePath = Path("recipes").joinpath(Path(extraCssFilePath))
 		lessFilePath = cssFilePath.with_suffix('.less')

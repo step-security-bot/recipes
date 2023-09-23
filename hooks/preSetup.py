@@ -1,4 +1,5 @@
 from sys import platform
+from typing import Literal
 from distro import id as distroId
 # Must import full os or WEXITSTATUS crashes other systems
 import os
@@ -41,7 +42,7 @@ class ZypperInstall(PackageManager):
 		zypperAttempt = os.system(f'sudo zypper install  {assumeYes == True and "-y" or ""} {" ".join(packages)}')
 		print("EXIT CODE:", zypperAttempt, os.WEXITSTATUS(zypperAttempt))
 
-def on_startup(command, dirty: bool):
+def on_startup(command: Literal[''], dirty: bool):
 	# MkDocs social requirement
 	if (os.getenv('ENABLED_SOCIAL') != None and bool(os.getenv('ENABLED_SOCIAL'))):
 		if platform == "linux":

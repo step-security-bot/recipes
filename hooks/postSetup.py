@@ -1,4 +1,4 @@
-from mkdocs.config.base import Config
+from mkdocs.config.defaults import MkDocsConfig
 from pathlib import Path
 from shutil import copyfile
 
@@ -13,5 +13,5 @@ class PostSetupCF:
 		copyfile(oldPath, newPath)
 		print("Moved", oldPath, "to", newPath, flush=True)
 
-def on_post_build(config: Config) -> None:
+def on_post_build(config: MkDocsConfig) -> None:
 	PostSetup()

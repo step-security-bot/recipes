@@ -1,5 +1,5 @@
 from mkdocs.structure.files import Files
-from mkdocs.config.base import Config
+from mkdocs.config.defaults import MkDocsConfig
 from pathlib import Path
 from urllib.parse import unquote
 import re
@@ -31,7 +31,7 @@ class CookDocsImages:
 			shutil.copyfile(originalPath, newPath)
 			print("Moved", originalPath, "to", newPath, flush=True)
 
-def on_files(files: Files, config: Config) -> Files:
+def on_files(files: Files, config: MkDocsConfig) -> Files | None:
 	newFiles = []
 	for oldFile in files:
 		newFile = oldFile
