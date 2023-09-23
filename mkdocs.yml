@@ -140,7 +140,7 @@ hooks:
 plugins:
   - search
   - social:
-      cards: !ENV [ENABLED_SOCIAL, false]
+      enabled: !ENV [ENABLED_SOCIAL, false]
   - tags
   - glightbox
   - minify:
