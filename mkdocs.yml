@@ -111,6 +111,9 @@ markdown_extensions:
   - attr_list
   - toc:
       permalink: "#"
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.betterem
   - pymdownx.details
   - pymdownx.emoji:
