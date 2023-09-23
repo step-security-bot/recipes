@@ -44,3 +44,9 @@ tags:{{ range $key, $value := .Metadata }}
 
 ???+ quote "Source"
 	{{ template "cook.source" . }}
+
+<!-- Was this page helpful? -->
+{% include "partials/feedback.html" %}
+
+<!-- Comment system -->
+{% include "partials/comments.html" %}
