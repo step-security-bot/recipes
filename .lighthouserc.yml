@@ -22,6 +22,8 @@ ci:
       unsized-images: warn
       # Since no tags are created, there's a GH api call that will always fail - leaving as warn in case there are others
       errors-in-console: warn
+      # Not used on 404 page, but used on all the others
+      unused-javascript: warn
       # navigation.instant turns into SPA which breaks back/forward cache
       bf-cache: off
       # Not testable local
