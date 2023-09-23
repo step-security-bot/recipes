@@ -29,7 +29,9 @@ ci:
       # Not controllable
       non-composited-animations: off
       uses-rel-preconnect: off
-
+      crawlable-anchors: off
+      form-field-multiple-labels: off
+      label: off
 
   upload:
     # choices: "lhci", "temporary-public-storage", "filesystem"
