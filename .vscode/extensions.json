@@ -1,3 +1,10 @@
 {
-	"recommendations": ["dubadub.cook", "redhat.vscode-yaml"]
+	"recommendations": [
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"dubadub.cook",
+		"eeyore.yapf",
+		"redhat.vscode-yaml",
+		"github.vscode-github-actions"
+	]
 }
