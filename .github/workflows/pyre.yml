@@ -43,6 +43,11 @@ jobs:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
         with:
           submodules: true
+      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4.7.0
+        with:
+          python-version: '3.x'
+          check-latest: true
+          cache: 'pip'
       - uses: facebook/pyre-action@60697a7858f7cc8470d8cc494a3cf2ad6b06560d # v0.0.1
         with:
           # To customize these inputs:
