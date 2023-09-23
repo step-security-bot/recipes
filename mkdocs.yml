@@ -107,24 +107,24 @@ extra_css:
   - stylesheets/keepAwake.css
   - stylesheets/theme.css
 markdown_extensions:
+  - admonition
+  - attr_list
   - toc:
       permalink: "#"
-  - attr_list
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
   - pymdownx.betterem
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.tasklist:
-      custom_checkbox: true
-      clickable_checkbox: true
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
 hooks:
   - hooks/preSetup.py
   # - hooks/debug.py
