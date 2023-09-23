@@ -6,6 +6,7 @@
 
 {{- define "metaTags" -}}
 ---
+comments: true
 tags:{{ range $key, $value := .Metadata }}
   - {{ $key }}: {{ $value }}{{ end }}
 ---

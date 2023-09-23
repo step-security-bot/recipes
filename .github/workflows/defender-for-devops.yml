@@ -30,17 +30,19 @@ jobs:
   MSDO:
     # currently only windows latest is supported
     runs-on: windows-latest
+    environment:
+      name: ${{ github.base_ref || github.ref_name }}
+      url: ${{ github.server_url }}/${{ github.repository }}/security/code-scanning?query=is%3Aopen+tool%3Aantimalware
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: |
-            5.0.x
-            6.0.x
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
       - uses: microsoft/security-devops-action@19539f7e6ce5a7f39edd1a0cdb0ec9d92b74bcf2 # v1.7.2
         id: msdo
         env:
           GDN_RUN_AUTO: true
-      - uses: github/codeql-action/upload-sarif@00e563ead9f72a8461b24876bee2d0c2e8bd2ee8 # v2.21.5
+      - uses: github/codeql-action/upload-sarif@6a28655e3dcb49cb0840ea372fd6d17733edd8a4 # v2.21.8
         with:
           sarif_file: ${{ steps.msdo.outputs.sarifFile }}

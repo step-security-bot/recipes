@@ -62,6 +62,8 @@ theme:
   features:
     - navigation.instant
     - navigation.tracking
+    - navigation.prune
+    - toc.follow
     - navigation.top
     - search.suggest
     - search.highlight
@@ -96,33 +98,36 @@ extra:
       link: https://vic-recipes.pages.dev
       name: Cloudflare Pages
 extra_javascript:
-  - javascripts/keepAwake.js
+  - path: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js
+    defer: true
+  - path: javascripts/keepAwake.js
+    defer: true
 extra_css:
   - stylesheets/fullWidth.css
   - stylesheets/keepAwake.css
   - stylesheets/theme.css
 markdown_extensions:
-  - smarty
+  - admonition
+  - attr_list
   - toc:
       permalink: "#"
-      separator: "_"
-  - sane_lists
-  - attr_list
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.betterem
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.tasklist:
-      custom_checkbox: true
-      clickable_checkbox: true
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
 hooks:
   - hooks/preSetup.py
   # - hooks/debug.py
@@ -134,7 +139,10 @@ hooks:
   - hooks/postSetup.py
 plugins:
   - search
+  - social:
+      enabled: !ENV [ENABLED_SOCIAL, false]
   - tags
+  - glightbox
   - minify:
       minify_html: true
       htmlmin_opts:
@@ -149,10 +157,5 @@ plugins:
         - stylesheets/fullWidth.css
         - stylesheets/keepAwake.css
         - stylesheets/theme.css
-  - glightbox
-  - google-translate
-  - social:
-      cards: !ENV [ENABLED_SOCIAL, false]
-  # - privacy:
-  #     enabled: !ENV [CF_PAGES, GITHUB_ACTIONS, false]
   # - meta
+  - google-translate

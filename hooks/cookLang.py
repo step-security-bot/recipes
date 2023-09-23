@@ -1,4 +1,4 @@
-from mkdocs.config.base import Config
+from mkdocs.config.defaults import MkDocsConfig
 from ghapi.all import GhApi
 import re
 from pathlib import Path
@@ -37,5 +37,5 @@ class CookLang:
 		zipLocation.unlink()
 		print(f"Deleted {zipLocation}")
 
-def on_config(config: Config) -> Config:
+def on_config(config: MkDocsConfig) -> MkDocsConfig | None:
 	CookLang()

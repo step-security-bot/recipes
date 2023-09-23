@@ -1,13 +1,13 @@
-mkdocs==1.5.2
-mkdocs-material==9.3.1
+mkdocs==1.5.3
+mkdocs-material==9.4.1
 ghapi==1.0.4
 requests==2.31.0
 lesscpy==0.15.1
 CairoSVG==2.7.1
-Pillow==10.0.0
+Pillow==10.0.1
 distro==1.8.0
 mkdocs-minify-plugin==0.7.1
 pymdown-extensions==10.3
 toc==0.0.11
 mkdocs-glightbox==0.3.4
-mkdocs-google-translate==1.1.2
+mkdocs-google-translate==1.1.3

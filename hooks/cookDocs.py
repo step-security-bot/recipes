@@ -1,4 +1,4 @@
-from mkdocs.config.base import Config
+from mkdocs.config.defaults import MkDocsConfig
 from subprocess import run
 from os import getenv
 
@@ -24,5 +24,5 @@ class CookDocs:
 		print(cookDocsAttempt.stdout, flush=True)
 		print(cookDocsAttempt.stderr, flush=True)
 
-def on_config(config: Config) -> Config:
+def on_config(config: MkDocsConfig) -> MkDocsConfig | None:
 	CookDocs()

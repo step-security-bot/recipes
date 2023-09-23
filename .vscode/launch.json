@@ -5,11 +5,33 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Python: Module",
+			"name": "Live Preview",
 			"type": "python",
 			"request": "launch",
 			"module": "mkdocs",
-			"args": ["build", "--clean"],
+			"args": [
+				"serve",
+				"--dev-addr",
+				"localhost:8000",
+				"--clean",
+				"--watch",
+				"overrides"
+			],
+			"cwd": "${workspaceFolder}",
+			"env": {
+				"ENABLED_SOCIAL": "false"
+			},
+			"justMyCode": true
+		},
+		{
+			"name": "Build",
+			"type": "python",
+			"request": "launch",
+			"module": "mkdocs",
+			"args": [
+				"build",
+				"--clean"
+			],
 			"cwd": "${workspaceFolder}",
 			"env": {
 				"ENABLED_SOCIAL": "false"

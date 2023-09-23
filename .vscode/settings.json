@@ -1,8 +1,42 @@
 {
+	"editor.formatOnSave": true,
+	"github-actions.workflows.pinned.workflows": [
+		".github/workflows/github-deploy.yml"
+	],
+	"github-actions.workflows.pinned.refresh.enabled": true,
+	"python.analysis.typeCheckingMode": "strict",
+	"python.analysis.autoSearchPaths": true,
+	"python.analysis.useLibraryCodeForTypes": true,
+	"python.analysis.indexing": true,
+	"python.analysis.autoImportCompletions": true,
+	"python.analysis.completeFunctionParens": true,
+	"python.analysis.inlayHints.variableTypes": true,
+	"python.analysis.inlayHints.functionReturnTypes": true,
+	"python.analysis.inlayHints.callArgumentNames": "all",
+	"python.analysis.fixAll": [
+		"source.unusedImports",
+		"source.convertImportFormat"
+	],
+	"python.analysis.autoFormatStrings": true,
+	"editor.codeActionsOnSave": {
+		"source.fixall.pylance": true
+	},
 	"yaml.schemas": {
 		"https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
 	},
-	"yaml.customTags": ["!ENV scalar", "!ENV sequence", "tag:yaml.org,2002:python/name:materialx.emoji.to_svg", "tag:yaml.org,2002:python/name:materialx.emoji.twemoji", "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"],
-	"python.formatting.provider": "yapf",
-	"editor.formatOnSave": true
+	"yaml.customTags": [
+		"!ENV scalar",
+		"!ENV sequence",
+		"tag:yaml.org,2002:python/name:materialx.emoji.to_svg",
+		"tag:yaml.org,2002:python/name:materialx.emoji.twemoji",
+		"tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+	],
+	"[yaml]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+		"editor.detectIndentation": false
+	},
+	"[python]": {
+		"editor.defaultFormatter": "eeyore.yapf"
+	}
 }
