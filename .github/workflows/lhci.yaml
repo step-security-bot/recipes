@@ -35,9 +35,12 @@ jobs:
           disable-sudo: true
           egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
-      - run: echo "$(basename ${{ github.event.workflow.path }})"
+      - run: echo "workflow_name=$(basename ${{ github.event.workflow.path }})" >> "$GITHUB_OUTPUT
+        id: last_workflow
         shell: bash
       - uses: dawidd6/action-download-artifact@246dbf436b23d7c49e21a7ab8204ca9ecd1fe615 # v2.27.0
+        with:
+          workflow: ${{ steps.last_workflow.outputs.workflow_name }}
       - uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
           node-version: lts/*
