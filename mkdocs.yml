@@ -150,9 +150,6 @@ plugins:
   - social:
       enabled: !ENV [ENABLED_SOCIAL, false]
   - tags
-  - git-revision-date-localized:
-      type: timeago
-      enable_creation_date: true
   - glightbox
   - minify:
       minify_html: true
