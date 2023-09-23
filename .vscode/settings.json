@@ -36,5 +36,7 @@
 		"editor.insertSpaces": true,
 		"editor.detectIndentation": false
 	},
-	"python.formatting.provider": "yapf"
+	"[python]": {
+		"editor.defaultFormatter": "eeyore.yapf"
+	}
 }
