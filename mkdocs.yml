@@ -98,8 +98,10 @@ extra:
       link: https://vic-recipes.pages.dev
       name: Cloudflare Pages
 extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js
-  - javascripts/keepAwake.js
+  - path: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js
+    defer: true
+  - path: javascripts/keepAwake.js
+    defer: true
 extra_css:
   - stylesheets/fullWidth.css
   - stylesheets/keepAwake.css
