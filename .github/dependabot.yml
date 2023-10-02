@@ -20,6 +20,7 @@ updates:
         patterns:
           - "mkdocs"
           - "mkdocs-material"
+          - "mkdocs-material[*"
       social:
         patterns:
           - "CairoSVG"
