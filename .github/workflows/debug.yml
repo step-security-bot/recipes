@@ -1,4 +1,4 @@
-name: Generate Docs debug
+name: Debug
 
 on:
   workflow_dispatch:
