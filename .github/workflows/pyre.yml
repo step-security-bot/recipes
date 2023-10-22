@@ -45,7 +45,7 @@ jobs:
           submodules: true
       - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4.7.1
         with:
-          python-version: '3.11'
+          python-version: '3.x'
           check-latest: true
           cache: 'pip'
       - uses: facebook/pyre-action@60697a7858f7cc8470d8cc494a3cf2ad6b06560d # v0.0.1

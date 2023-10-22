@@ -46,7 +46,7 @@ jobs:
           submodules: true
       - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4.7.1
         with:
-          python-version: '3.11'
+          python-version: '3.x'
           check-latest: true
           cache: 'pip'
       - uses: facebook/pysa-action@f46a63777e59268613bd6e2ff4e29f144ca9e88b # 0.0.1
