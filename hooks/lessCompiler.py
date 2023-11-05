@@ -32,7 +32,7 @@ class LessCompiler:
 # Run `on_config` because it runs before `get_files`
 def on_config(config: MkDocsConfig) -> MkDocsConfig | None:
 	for extraCssFilePath in config.extra_css:
-		cssFilePath = Path("recipes").joinpath(Path(extraCssFilePath))
+		cssFilePath = Path(config.docs_dir).joinpath(Path(extraCssFilePath))
 		lessFilePath = cssFilePath.with_suffix('.less')
 
 		if lessFilePath.exists():
