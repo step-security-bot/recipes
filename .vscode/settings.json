@@ -19,7 +19,7 @@
 	],
 	"python.analysis.autoFormatStrings": true,
 	"editor.codeActionsOnSave": {
-		"source.fixall.pylance": true
+		"source.fixall.pylance": "explicit"
 	},
 	"yaml.schemas": {
 		"https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
