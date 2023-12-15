@@ -19,7 +19,7 @@ jobs:
       matrix:
         py: ['3.x', '3.13.0-alpha - 3.13.x']
         # cook docs still build for 1.18 (https://github.com/nicholaswilde/cook-docs/blob/main/go.mod#L3), test all through latest version 
-        go: ['1.18', '1.19', '1.20', '1.21', '1.22']
+        go: ['1.18', '1.19', '1.20', '1.21']
     steps:
       - uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
         with:
