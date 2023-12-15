@@ -70,10 +70,13 @@ class CookLang:
 		else:
 			raise ValueError(f"Hash verification failed. Download {computed_hash} vs expected {expected_hash}")
 
-	def extract(self, archiveLocation: Path, sha256Location: Path) -> None:
+	def extract(self, archiveLocation: Path, sha256Location: Path, filename: str = "cook") -> None:
 		with tarOpen(archiveLocation, 'r:gz') as tar:
-			tar.extractall(path=archiveLocation.parent)
-			print(f"Extracted {len(tar.getnames())} file(s) from {archiveLocation.resolve().relative_to(Path.cwd())} to {archiveLocation.parent.resolve().relative_to(Path.cwd())}")
+			try:
+				tar.extract(filename, path=archiveLocation.parent)
+				print(f"Extracted '{filename}' from {archiveLocation.resolve().relative_to(Path.cwd())} to {archiveLocation.parent.resolve().relative_to(Path.cwd())}")
+			except KeyError:
+				print(f"File '{filename}' not found in the archive.")
 
 		self.cleanup(archiveLocation=archiveLocation, sha256Location=sha256Location)
 
