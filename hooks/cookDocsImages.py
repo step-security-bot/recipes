@@ -1,9 +1,10 @@
-from mkdocs.structure.files import Files
-from mkdocs.config.defaults import MkDocsConfig
-from pathlib import Path
-from urllib.parse import unquote
 import re
 import shutil
+from pathlib import Path
+from urllib.parse import unquote
+
+from mkdocs.config.defaults import MkDocsConfig
+from mkdocs.structure.files import Files
 
 class CookDocsImages:
 	def standardizeName(self, filename) -> str:

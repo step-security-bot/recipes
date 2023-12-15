@@ -1,8 +1,9 @@
 from hashlib import sha512
-from mkdocs.config.defaults import MkDocsConfig
-from pathlib import Path
 from io import StringIO
+from pathlib import Path
+
 import lesscpy
+from mkdocs.config.defaults import MkDocsConfig
 
 class LessCompiler:
 	@staticmethod

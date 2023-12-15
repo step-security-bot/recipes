@@ -1,11 +1,11 @@
-from mkdocs.config.defaults import MkDocsConfig
-from ghapi.all import GhApi
-import re
+from io import DEFAULT_BUFFER_SIZE
 from pathlib import Path
 from urllib.parse import ParseResult, urlparse
-from requests import get
-from io import DEFAULT_BUFFER_SIZE
 from zipfile import ZipFile
+
+from ghapi.all import GhApi
+from mkdocs.config.defaults import MkDocsConfig
+from requests import get
 
 class CookLang:
 	def __init__(self) -> None:

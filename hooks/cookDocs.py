@@ -1,6 +1,7 @@
-from mkdocs.config.defaults import MkDocsConfig
-from subprocess import run
 from os import getenv
+from subprocess import run
+
+from mkdocs.config.defaults import MkDocsConfig
 
 class CookDocs:
 	def __init__(self) -> None:
