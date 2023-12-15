@@ -38,6 +38,8 @@ jobs:
       - run: echo "test=hello" >> "$GITHUB_OUTPUT"
       - uses: actions/download-artifact@7a1cd3216ca9260cd8022db641d960b1db4d1be4 # v4.0.0
         with:
+          name: site
+          path: ${{ github.workspace }}/site/
           run-id: ${{ github.event.workflow.id }}
       - uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
         with:
