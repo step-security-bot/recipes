@@ -4,10 +4,10 @@ from shutil import copyfile
 from urllib.parse import unquote
 
 from mkdocs.config.defaults import MkDocsConfig
-from mkdocs.structure.files import Files
+from mkdocs.structure.files import File, Files
 
 class CookDocsImages:
-	def standardizeName(self, filename) -> str:
+	def standardizeName(self, filename: str) -> str:
 		# Matching https://github.com/nicholaswilde/cook-docs/blob/main/pkg/document/template.go#L50
 		noSpaces = sub(r"\s", "-", filename)
 		lowercase = noSpaces.lower()
@@ -33,7 +33,7 @@ class CookDocsImages:
 			print("Moved", originalPath, "to", newPath, flush=True)
 
 def on_files(files: Files, config: MkDocsConfig) -> Files | None:
-	newFiles = []
+	newFiles: list[File] = []
 	for oldFile in files:
 		newFile = oldFile
 		if oldFile.is_media_file():
