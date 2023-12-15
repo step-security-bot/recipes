@@ -18,7 +18,7 @@ jobs:
       matrix:
         formFactor: [mobile, desktop]
         include:
-          # # Using Galaxy S21 size https://blisk.io/devices/details/galaxy-s21
+          # Using Galaxy S21 size https://blisk.io/devices/details/galaxy-s21
           - formFactor: mobile
             width: 360
             height: 800
