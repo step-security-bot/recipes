@@ -1,6 +1,6 @@
-import re
-import shutil
 from pathlib import Path
+from re import sub
+from shutil import copyfile
 from urllib.parse import unquote
 
 from mkdocs.config.defaults import MkDocsConfig
@@ -9,7 +9,7 @@ from mkdocs.structure.files import Files
 class CookDocsImages:
 	def standardizeName(self, filename) -> str:
 		# Matching https://github.com/nicholaswilde/cook-docs/blob/main/pkg/document/template.go#L50
-		noSpaces = re.sub(r"\s", "-", filename)
+		noSpaces = sub(r"\s", "-", filename)
 		lowercase = noSpaces.lower()
 		return lowercase
 
@@ -29,7 +29,7 @@ class CookDocsImages:
 			print("Created", newPath.parent, flush=True)
 		# Check if image exists
 		if not newPath.is_file():
-			shutil.copyfile(originalPath, newPath)
+			copyfile(originalPath, newPath)
 			print("Moved", originalPath, "to", newPath, flush=True)
 
 def on_files(files: Files, config: MkDocsConfig) -> Files | None:
