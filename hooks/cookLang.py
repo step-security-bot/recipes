@@ -66,20 +66,22 @@ class CookLang:
 		# Compare the hashes
 		if computed_hash == expected_hash:
 			print("Hash verified.")
-			self.unarchive(archiveLocation)
+			self.extract(archiveLocation=archiveLocation, sha256Location=sha256Location)
 		else:
 			raise ValueError(f"Hash verification failed. Download {computed_hash} vs expected {expected_hash}")
 
-	def unarchive(self, archiveLocation: Path) -> None:
+	def extract(self, archiveLocation: Path, sha256Location: Path) -> None:
 		with tarOpen(archiveLocation, 'r:gz') as tar:
 			tar.extractall(path=archiveLocation.parent)
-			print(f"Unzipped {len(tar.getnames())} file(s) from {archiveLocation.resolve().relative_to(Path.cwd())} to {archiveLocation.parent.resolve().relative_to(Path.cwd())}")
+			print(f"Extracted {len(tar.getnames())} file(s) from {archiveLocation.resolve().relative_to(Path.cwd())} to {archiveLocation.parent.resolve().relative_to(Path.cwd())}")
 
-		self.delArchive(archiveLocation)
+		self.cleanup(archiveLocation=archiveLocation, sha256Location=sha256Location)
 
-	def delArchive(self, archiveLocation: Path) -> None:
+	def cleanup(self, archiveLocation: Path, sha256Location: Path) -> None:
 		archiveLocation.unlink()
 		print(f"Deleted {archiveLocation}")
+		sha256Location.unlink()
+		print(f"Deleted {sha256Location}")
 
 def on_config(config: MkDocsConfig) -> MkDocsConfig | None:
 	CookLang()
