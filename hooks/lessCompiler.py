@@ -2,7 +2,7 @@ from hashlib import sha512
 from io import StringIO
 from pathlib import Path
 
-import lesscpy
+from lesscpy import compile
 from mkdocs.config.defaults import MkDocsConfig
 
 class LessCompiler:
@@ -15,7 +15,7 @@ class LessCompiler:
 		with open(lessFilePath, 'r') as lessFile:
 			lessFileText = lessFile.read()
 
-		newCssFileText = lesscpy.compile(StringIO(lessFileText), tabs=True, spaces=False)
+		newCssFileText = compile(StringIO(lessFileText), tabs=True, spaces=False)
 
 		try:
 			with open(cssFilePath, 'r', encoding='utf-8') as cssFile:
