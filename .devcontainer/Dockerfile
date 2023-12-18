@@ -5,7 +5,7 @@ FROM python:${VARIANT} AS base
 ENV DEBIAN_FRONTEND=noninteractive
 RUN --mount=type=cache,target=/var/cache/ apt update
 RUN --mount=type=cache,target=/var/cache/ apt install sudo -y
-RUN --mount=type=cache,target=/var/cache/ apt purge imagemagick imagemagick* -y
+RUN --mount=type=cache,target=/var/cache/ apt purge imagemagick imagemagick* libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev -y
 RUN --mount=type=cache,target=/var/cache/ apt clean
 RUN --mount=type=cache,target=/var/cache/ apt autoremove -y
 
