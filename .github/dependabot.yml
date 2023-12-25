@@ -29,11 +29,14 @@ updates:
           - "mkdocs"
           - "mkdocs-material"
           - "mkdocs-material[*"
-      social:
-        patterns:
           - "CairoSVG"
           - "Pillow"
-      hooks:
+      mkdocs-plugins:
         patterns:
-          - "lesscpy"
-          - "distro"
+          - "pymdown-extensions"
+          - "mkdocs-*"
+          - "toc"
+          - "setuptools"
+        exclude-patterns:
+          - "mkdocs-material"
+          - "mkdocs-material*"
