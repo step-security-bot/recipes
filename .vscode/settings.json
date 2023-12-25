@@ -17,6 +17,9 @@
 	"python.analysis.inlayHints.callArgumentNames": "all",
 	"python.analysis.fixAll": ["source.unusedImports", "source.convertImportFormat"],
 	"python.analysis.autoFormatStrings": true,
+	"evenBetterToml.schema.associations": {
+		"pyproject.toml": "https://json.schemastore.org/pyproject.json"
+	},
 	"yaml.schemas": {
 		"https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
 	},
