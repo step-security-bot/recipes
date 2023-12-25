@@ -42,7 +42,7 @@
 	// "onCreateCommand": {},
 	// "updateContentCommand": {},
 	"postCreateCommand": {
-		"setupPackages": "python3 -m venv .venv"
+		"setupPackages": "python3 -m venv .venv && pip install -r requirements.txt"
 	},
 	"postStartCommand": {
 		"updateCode": "git fetch && git pull --ff-only || git status"
