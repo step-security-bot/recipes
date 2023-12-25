@@ -1,4 +1,8 @@
 {
+	"editor.codeActionsOnSave": {
+		"source.fixall.pylance": "explicit",
+		"source.organizeImports": "explicit"
+	},
 	"editor.formatOnSave": true,
 	"github-actions.workflows.pinned.workflows": [".github/workflows/github-deploy.yaml"],
 	"github-actions.workflows.pinned.refresh.enabled": true,
@@ -13,10 +17,6 @@
 	"python.analysis.inlayHints.callArgumentNames": "all",
 	"python.analysis.fixAll": ["source.unusedImports", "source.convertImportFormat"],
 	"python.analysis.autoFormatStrings": true,
-	"editor.codeActionsOnSave": {
-		"source.fixall.pylance": "explicit",
-		"source.organizeImports": "explicit"
-	},
 	"yaml.schemas": {
 		"https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
 	},
