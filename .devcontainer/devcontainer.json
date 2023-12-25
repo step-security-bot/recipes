@@ -52,7 +52,7 @@
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
-			"extensions": ["github.codespaces", "dubadub.cook", "eeyore.yapf", "redhat.vscode-yaml", "github.vscode-github-actions", "ms-python.python", "ms-python.isort"]
+			"extensions": ["github.codespaces", "dubadub.cook", "eeyore.yapf", "redhat.vscode-yaml", "github.vscode-github-actions", "ms-python.python", "ms-python.isort", "tamasfe.even-better-toml"]
 		}
 	},
 
