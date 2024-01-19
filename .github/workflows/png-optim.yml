@@ -54,7 +54,6 @@ jobs:
           else
             echo "oxipng is up to date."
           fi
-      - name: Optimize PNGs
         run: oxipng -o max -r --strip safe -i 1 -t 2 ${{ github.workspace }}/recipes
       - name: Git Setup
         run: |
