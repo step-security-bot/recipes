@@ -1,5 +1,5 @@
 site_name: Recipes
-site_url: !ENV [SITE_URL, CF_PAGES_URL, 'https://recipes.demosjarco.dev']
+site_url: !ENV [SITE_URL, CF_PAGES_URL, "https://recipes.demosjarco.dev"]
 site_author: DemosJarco
 repo_name: demosjarco/recipes
 repo_url: https://github.com/demosjarco/recipes
@@ -61,6 +61,7 @@ theme:
     code: Red Hat Mono
   features:
     - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.prune
     - toc.follow
@@ -73,17 +74,25 @@ theme:
 extra:
   alternate:
     - name: English
-      lang: 'en'
-      link: '/%GT_RELATIVE_URL%'  # For relative urls back to original language
+      lang: "en"
+      link: "/%GT_RELATIVE_URL%" # For relative urls back to original language
     - name: Romanian
-      lang: 'ro'
-      link: !ENV [RO_TRANSLATE_URL, 'https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://recipes.demosjarco.dev/%GT_RELATIVE_URL%']
+      lang: "ro"
+      link:
+        !ENV [
+          RO_TRANSLATE_URL,
+          "https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://recipes.demosjarco.dev/%GT_RELATIVE_URL%",
+        ]
       # _x_tr_sl = source language
       # _x_tr_tl = translation language
       # _x_tr_hl = google translate ui language
     - name: Spanish
-      lang: 'es'
-      link: !ENV [ES_TRANSLATE_URL, 'https://translate.google.com/translate?sl=en&tl=es&hl=es&u=https://recipes.demosjarco.dev/%GT_RELATIVE_URL%']
+      lang: "es"
+      link:
+        !ENV [
+          ES_TRANSLATE_URL,
+          "https://translate.google.com/translate?sl=en&tl=es&hl=es&u=https://recipes.demosjarco.dev/%GT_RELATIVE_URL%",
+        ]
       # _x_tr_sl = source language
       # _x_tr_tl = translation language
       # _x_tr_hl = google translate ui language
@@ -117,8 +126,8 @@ markdown_extensions:
   - pymdownx.betterem
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true

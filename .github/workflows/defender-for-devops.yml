@@ -30,19 +30,25 @@ jobs:
   MSDO:
     # currently only windows latest is supported
     runs-on: windows-latest
-    environment:
-      name: ${{ github.base_ref || github.ref_name }}
-      url: ${{ github.server_url }}/${{ github.repository }}/security/code-scanning?query=is%3Aopen+tool%3Aantimalware
     permissions:
       actions: read
       contents: read
       security-events: write
     steps:
-      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
-      - uses: microsoft/security-devops-action@19539f7e6ce5a7f39edd1a0cdb0ec9d92b74bcf2 # v1.7.2
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0
+        with:
+          python-version: '3.x'
+          check-latest: true
+          cache: 'pip'
+      - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0
+        with:
+          go-version: 'stable'
+          check-latest: true
+      - uses: microsoft/security-devops-action@7e3060ae1e6a9347dd7de6b28195099f39852fe2 # v1.10.0
         id: msdo
         env:
           GDN_RUN_AUTO: true
-      - uses: github/codeql-action/upload-sarif@6a28655e3dcb49cb0840ea372fd6d17733edd8a4 # v2.21.8
+      - uses: github/codeql-action/upload-sarif@e5f05b81d5b6ff8cfa111c80c22c5fd02a384118 # v3.23.0
         with:
           sarif_file: ${{ steps.msdo.outputs.sarifFile }}

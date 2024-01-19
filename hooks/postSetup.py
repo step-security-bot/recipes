@@ -1,7 +1,8 @@
-from urllib.parse import urlparse, urlunparse
-from mkdocs.config.defaults import MkDocsConfig
 from pathlib import Path
 from shutil import copyfile
+from urllib.parse import urlparse, urlunparse
+
+from mkdocs.config.defaults import MkDocsConfig
 
 class CSPGenerator:
 	def __init__(self) -> None:

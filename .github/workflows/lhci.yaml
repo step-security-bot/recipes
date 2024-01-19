@@ -1,0 +1,63 @@
+name: Google Lighthouse
+
+on:
+  workflow_run:
+    workflows: ["Deploy"]
+    types:
+      - completed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        formFactor: [mobile, desktop]
+        include:
+          # Using Galaxy S21 size https://blisk.io/devices/details/galaxy-s21
+          - formFactor: mobile
+            width: 360
+            height: 800
+            deviceScaleFactor: 3
+            mobile: true
+          - formFactor: desktop
+            width: 1920
+            height: 1080
+            deviceScaleFactor: 1
+            mobile: false
+    steps:
+      - uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - run: echo "workflow_name=$(basename ${{ github.event.workflow.path }})" >> "$GITHUB_OUTPUT"
+        id: last_workflow
+        shell: bash
+      - uses: dawidd6/action-download-artifact@e7466d1a7587ed14867642c2ca74b5bcc1e19a2d # v3.0.0
+        with:
+          workflow: ${{ steps.last_workflow.outputs.workflow_name }}
+      - uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
+        with:
+          node-version: lts/*
+          check-latest: true
+      - run: npm install -D @lhci/cli@latest
+      - run: npx lhci collect --settings.formFactor ${{ matrix.formFactor }} --settings.screenEmulation.width ${{ matrix.width }} --settings.screenEmulation.height ${{ matrix.height }} --settings.screenEmulation.deviceScaleFactor ${{ matrix.deviceScaleFactor }} --settings.screenEmulation.mobile ${{ matrix.mobile }}
+      - run: npx lhci assert
+      - run: npx lhci upload --target=temporary-public-storage --githubStatusContextSuffix /${{ matrix.formFactor }}
+        if: ${{ always() }}
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - run: npx lhci upload --target=filesystem --outputDir=./lhci-${{ matrix.formFactor }} --githubStatusContextSuffix /${{ matrix.formFactor }}
+        if: ${{ always() }}
+      - uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # v4.0.0
+        if: ${{ always() }}
+        with:
+          name: lhci-${{ matrix.formFactor }}
+          path: ${{ github.workspace }}/lhci-${{ matrix.formFactor }}/
+          if-no-files-found: error
+          compression-level: 9

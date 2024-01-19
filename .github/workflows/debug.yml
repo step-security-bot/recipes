@@ -1,4 +1,4 @@
-name: Generate Docs debug
+name: Debug
 
 on:
   workflow_dispatch:
@@ -17,29 +17,29 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        py: ['3.x', '3.12.0-alpha - 3.12.x']
+        py: ['3.x', '3.13.0-alpha - 3.13.x']
         # cook docs still build for 1.18 (https://github.com/nicholaswilde/cook-docs/blob/main/go.mod#L3), test all through latest version 
         go: ['1.18', '1.19', '1.20', '1.21']
     steps:
-      - uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+      - uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
         with:
             egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
-      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
-      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4.7.0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0
         id: sp
         with:
           python-version: ${{ matrix.py }}
           check-latest: true
           cache: 'pip'
       - run: pip install -r requirements.txt
-      - uses: actions/setup-go@93397bea11091df50f3d7e59dc26a7711a8bcfbe # v4.1.0
+      - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0
         id: sg
         with:
           go-version: ${{ matrix.go }}
           check-latest: true
       - name: MkDocs cache
         if: ${{ inputs.useMkDocsCache }}
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3.3.3
         with:
           key: ${{ github.ref }}
           path: .cache
@@ -51,14 +51,16 @@ jobs:
           SITE_URL: https://demosjarco.github.io/recipes/
           RO_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=ro&hl=ro&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
           ES_TRANSLATE_URL: https://translate.google.com/translate?sl=en&tl=es&hl=es&u=https://demosjarco.github.io/recipes/%GT_RELATIVE_URL%
-      - run: find . -type f -exec sha256sum {} \; > 'py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256'
-      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
-        with:
-          name: py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256
-          path: '${{ github.workspace }}/py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256'
-          if-no-files-found: error
-      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
+      - uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # v4.0.0
         with:
           name: py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}
           path: ${{ github.workspace }}
           if-no-files-found: error
+          compression-level: 9
+      - run: find . -type f -exec sha256sum {} \; > 'py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256'
+      - uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # v4.0.0
+        with:
+          name: py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256
+          path: '${{ github.workspace }}/py${{ steps.sp.outputs.python-version }}_go${{ steps.sg.outputs.go-version }}_hashes.sha256'
+          if-no-files-found: error
+          compression-level: 9

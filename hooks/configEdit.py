@@ -1,6 +1,6 @@
 from mkdocs.config.defaults import MkDocsConfig
-from mkdocs.structure.nav import Navigation, Link
 from mkdocs.structure.files import Files
+from mkdocs.structure.nav import Link, Navigation
 
 def on_config(config: MkDocsConfig) -> MkDocsConfig | None:
 	pass

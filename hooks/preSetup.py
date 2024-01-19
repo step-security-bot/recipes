@@ -1,9 +1,10 @@
-from sys import platform
-from typing import Literal
-from distro import id as distroId
-from subprocess import PIPE, run
 # Must import full os or WEXITSTATUS crashes other systems
 import os
+from subprocess import PIPE, run
+from sys import platform
+from typing import Literal
+
+from distro import id as distroId
 
 class PackageManager:
 	def __init__(self) -> None:

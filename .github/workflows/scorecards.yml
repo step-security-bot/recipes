@@ -21,10 +21,6 @@ jobs:
   analysis:
     name: Scorecard analysis
     runs-on: ubuntu-latest
-    environment:
-      name: ${{ github.base_ref || github.ref_name }}
-      # url: ${{ github.server_url }}/${{ github.repository }}/security/code-scanning?query=is%3Aopen+tool%3AScorecard
-      url: https://securityscorecards.dev/viewer/?uri=github.com/${{ github.repository }}
     permissions:
       # Needed to upload the results to code-scanning dashboard.
       security-events: write
@@ -34,19 +30,19 @@ jobs:
       actions: read
 
     steps:
-      - uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+      - uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
         with:
           disable-sudo: true
           egress-policy: audit
-      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           persist-credentials: false
-      - uses: ossf/scorecard-action@08b4669551908b1024bb425080c797723083c031 # v2.2.0
+      - uses: ossf/scorecard-action@0864cf19026789058feabb7e87baa5f140aac736 # v2.3.1
         with:
           results_file: results.sarif
           results_format: sarif
           publish_results: true
       # Upload the results to GitHub's code scanning dashboard.
-      - uses: github/codeql-action/upload-sarif@6a28655e3dcb49cb0840ea372fd6d17733edd8a4 # v2.21.8
+      - uses: github/codeql-action/upload-sarif@e5f05b81d5b6ff8cfa111c80c22c5fd02a384118 # v3.23.0
         with:
           sarif_file: results.sarif
