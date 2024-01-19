@@ -40,3 +40,8 @@ updates:
         exclude-patterns:
           - "mkdocs-material"
           - "mkdocs-material*"
+
+  - package-ecosystem: docker
+    directory: /.devcontainer
+    schedule:
+      interval: daily
